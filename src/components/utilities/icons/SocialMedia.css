@@ -1,0 +1,9 @@
+.social-media-icons a {
+    margin-right: 15px;
+    transition: color 0.3s ease;
+  }
+  
+  .social-media-icons a:hover {
+    color: #0056b3;
+  }
+  

@@ -1,0 +1,281 @@
+/* General Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Coffee Section */
+.coffee-section {
+  background-image: url('https://retrolie.thememove.com/wp-content/uploads/2019/03/h7-testi-bg.png');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 100px 20px;
+  width: 100%;
+  height: 800px;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+}
+
+.cup-container {
+  position: relative; /* Position relative for absolute children */
+  display: inline-block; /* Ensure the cup and beans stack properly */
+}
+
+.bouncing-cup {
+  animation: bounce 2s infinite;
+  width: 200px; /* Adjust cup size */
+}
+
+.beans-background {
+  position: absolute; /* Position the beans image */
+  top: 60%; /* Adjust to position the beans behind the cup */
+  transform: translate(-50%, -50%); /* Center the beans */
+  width: 100%; /* Adjust the size of the beans image */
+  height: auto; /* Maintain aspect ratio */
+  z-index: 1; /* Send it behind the cup */
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+
+/* Menu Section */
+.menu-section {
+  background-image: url('https://retrolie.thememove.com/wp-content/uploads/2019/03/h7-testi-bg.png');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.menu-heading {
+  font-family: 'Georgia', serif;
+  color: #333;
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.menu-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu-category h3 {
+  font-family: 'Georgia', serif;
+  color: #FF5722;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.menu-category ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-category li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+}
+
+.menu-category li img {
+  width: 70px;
+  height: 70px;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.menu-category li span {
+  font-family: 'Georgia', serif;
+  font-size: 18px;
+  color: #333;
+  flex-grow: 1;
+}
+
+.menu-category li p {
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  color: #777;
+}
+
+.menu-category .price {
+  font-family: 'Georgia', serif;
+  font-size: 16px;
+  color: #FF5722;
+}
+
+/* Make it responsive */
+@media (max-width: 768px) {
+  .menu-wrapper {
+    grid-template-columns: 1fr; /* Single column layout */
+  }
+
+  .coffee-title {
+    font-size: 50px; /* Adjusted for smaller screens */
+  }
+
+  .menu-heading {
+    font-size: 28px; /* Adjusted heading size */
+  }
+
+  .menu-category h3 {
+    font-size: 24px; /* Adjusted category title size */
+  }
+
+  .menu-category li span {
+    font-size: 16px; /* Adjusted item name size */
+  }
+}
+
+
+/* New Menu Section */
+.new-menu-section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.new-menu-heading {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.new-menu-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.new-menu-item {
+  width: 300px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.new-menu-item img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.hover-overlay {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.6));
+  transition: all 0.4s ease-in-out;
+}
+
+.image-wrapper:hover img {
+  transform: scale(1.1);
+}
+
+.image-wrapper:hover .hover-overlay {
+  left: 100%;
+}
+
+.new-menu-item h3 {
+  font-size: 20px;
+  color: #ff5722;
+  margin-top: 20px;
+}
+
+.new-menu-item p {
+  color: #666;
+  margin-top: 10px;
+}
+            
+
+
+
+/* Footer Section */
+.custom-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.footer-logo img {
+  width: 150px;
+}
+
+address p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #ddd;
+}
+
+.footer-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-bottom img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+/* Add this CSS for hover effect on menu items */
+.menu-link {
+  text-decoration: none; /* Remove underline from link */
+  color: inherit; /* Inherit color from parent */
+}
+
+.menu-category li:hover {
+  background-color: #f0f0f0; /* Light background on hover */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.menu-category img {
+  width: 70px; /* Adjust the size of images */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.category-title {
+  margin: 10px 0; /* Space between title and items */
+}

@@ -2,9 +2,9 @@ import React from 'react';
 import { Navbar, Nav, Button, NavDropdown } from 'react-bootstrap';
 import { FaBars, FaSearch, FaPhone, FaEllipsisV, FaShoppingBag } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import './HomeNavbar.css';
+import './Mainnav.css';
 
-const AppNavbar = () => {
+const Mainnav = () => {
   const [navbarBackground, setNavbarBackground] = React.useState(false);
   const [showIcons, setShowIcons] = React.useState(false);
   const [showSideMenu, setShowSideMenu] = React.useState(false);
@@ -95,4 +95,4 @@ const AppNavbar = () => {
   );
 };
 
-export default AppNavbar;
+export default Mainnav;

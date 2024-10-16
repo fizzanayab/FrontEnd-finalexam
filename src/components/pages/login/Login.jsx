@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { signUpSchema, signInSchema } from "./validationSchema"; // Import Yup schema
 import SocialMedia from "./../../utilities/icons/SocialMedia";
 import "./Login.css";
-<<<<<<< HEAD
 
 const Login = () => {
   const [signUpMode, setSignUpMode] = useState(false);
@@ -82,27 +81,6 @@ const Login = () => {
             )}
           </div>
           <button className="btn solid" type="submit">Login</button>
-=======
-import SocialMedia from "./../../utilities/icons/SocialMedia";
-
-const Login = () => {
-  const [signUpMode, setSignUpMode] = useState(false);
-
-  return (
-    <div className={`login-container ${signUpMode ? "sign-up-mode" : ""}`}>
-      <div className="form-container sign-in-container">
-        <form className="sign-in-form">
-          <h2 className="title">Sign in</h2>
-          <div className="input-field">
-            <i className="fas fa-user"></i>
-            <input type="text" placeholder="Username" />
-          </div>
-          <div className="input-field">
-            <i className="fas fa-lock"></i>
-            <input type="password" placeholder="Password" />
-          </div>
-          <button className="btn solid">Login</button>
->>>>>>> 7e811832f7ac5ea92952b7a6aaa63e21c7a8eeea
           <p className="social-text">Or Sign in with social platforms</p>
           <div className="social-media">
             <SocialMedia icon_name="facebook-f" size="24px" color="#3b5998" />
@@ -113,7 +91,6 @@ const Login = () => {
         </form>
       </div>
 
-<<<<<<< HEAD
       {/* Sign Up Container */}
       <div className="form-container sign-up-container">
         <form className="sign-up-form" onSubmit={formikSignUp.handleSubmit}>
@@ -161,24 +138,6 @@ const Login = () => {
             )}
           </div>
           <button className="btn solid" type="submit">Sign Up</button>
-=======
-      <div className="form-container sign-up-container">
-        <form className="sign-up-form">
-          <h2 className="title">Sign up</h2>
-          <div className="input-field">
-            <i className="fas fa-user"></i>
-            <input type="text" placeholder="Username" />
-          </div>
-          <div className="input-field">
-            <i className="fas fa-envelope"></i>
-            <input type="email" placeholder="Email" />
-          </div>
-          <div className="input-field">
-            <i className="fas fa-lock"></i>
-            <input type="password" placeholder="Password" />
-          </div>
-          <button className="btn solid">Sign Up</button>
->>>>>>> 7e811832f7ac5ea92952b7a6aaa63e21c7a8eeea
           <p className="social-text">Or Sign up with social platforms</p>
           <div className="social-media">
             <SocialMedia icon_name="facebook-f" size="24px" color="#3b5998" />
@@ -189,10 +148,7 @@ const Login = () => {
         </form>
       </div>
 
-<<<<<<< HEAD
       {/* Overlay for switching between sign-in and sign-up */}
-=======
->>>>>>> 7e811832f7ac5ea92952b7a6aaa63e21c7a8eeea
       <div className="overlay-container">
         <div className="overlay">
           <div className="overlay-panel overlay-left">

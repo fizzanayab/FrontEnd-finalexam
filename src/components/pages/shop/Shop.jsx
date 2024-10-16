@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Shop.css'; // Assuming you'll have a CSS file for styling
-import AppNavbar from '../../header/homenav/HomeNav'; // Import your navbar
-
+import Mainnav from '../../header/pagesnav/Mainnav';
+import Footer from '../../footer/pagesfooter/Footer';
 const products = [
   { id: 1, name: 'Above-knee Jeans Skirt', price: 49.00, img: 'image_url_1' },
   { id: 2, name: 'Artificial Fur Coat', price: 60.00, img: 'image_url_2' },
@@ -20,7 +20,7 @@ const Shop = () => {
 
   return (
     <div>
-      <AppNavbar />
+      <Mainnav/>
       <div className="shop-container">
         <aside className="filter-sidebar">
           <h2>Filter by price</h2>
@@ -61,6 +61,8 @@ const Shop = () => {
           </div>
         </section>
       </div>
+      <Footer/>
+
     </div>
   );
 };

@@ -1,0 +1,57 @@
+.footer {
+    background-color: #3e2321;
+    color: white;
+    padding: 50px 0;
+  }
+  
+  .footer h5 {
+    font-size: 16px;
+    font-weight: bold;
+    color: orange;
+  }
+  
+  .quick-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .quick-links ul li {
+    margin-bottom: 10px;
+  }
+  
+  .subscribe .email-input {
+    width: 80%;
+    padding: 8px;
+    margin-top: 10px;
+    border: none;
+  }
+  
+  .subscribe-button {
+    padding: 8px 15px;
+    background-color: orange;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .social-icons {
+    margin-top: 10px;
+  }
+  
+  .social-icons svg {
+    font-size: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .contact-us p {
+    margin: 5px 0;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    color: #bbb;
+  }
+  

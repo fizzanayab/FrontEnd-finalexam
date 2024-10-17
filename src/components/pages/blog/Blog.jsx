@@ -1,5 +1,5 @@
 import React from 'react';
-import './Blog.css'; // You will define the styles in a separate CSS file.
+import './Blog.css'; 
 import Mainnav from '../../header/pagesnav/Mainnav';
 import Footer from '../../footer/pagesfooter/Footer';
 

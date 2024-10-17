@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link for routing
+import { Link } from 'react-router-dom'; 
 import AppNavbar from '../../header/homenav/HomeNav';
 import Slider from '../../utilities/slider/Slider';
-import './Home.css'; // Add a CSS file for custom styling
+import './Home.css'; 
 
 const Home = () => {
   return (

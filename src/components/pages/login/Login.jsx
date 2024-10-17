@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
-import { signUpSchema, signInSchema } from "./validationSchema"; // Import Yup schema
+import { signUpSchema, signInSchema } from "./validationSchema"; 
 import SocialMedia from "./../../utilities/icons/SocialMedia";
+import { useDispatch } from 'react-redux';
+import { login } from '../../features/authSlice'; 
 import "./Login.css";
 
 const Login = () => {
   const [signUpMode, setSignUpMode] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch(); 
 
   // Formik setup for SignUp
   const formikSignUp = useFormik({
@@ -18,9 +21,7 @@ const Login = () => {
     },
     validationSchema: signUpSchema,
     onSubmit: (values) => {
-      // Save data to localStorage
       localStorage.setItem("user", JSON.stringify(values));
-      // After signup, switch to sign-in mode
       setSignUpMode(false);
       alert("Registration successful! Please sign in.");
     },
@@ -38,8 +39,8 @@ const Login = () => {
 
       if (storedUser && storedUser.username === values.username && storedUser.password === values.password) {
         alert("Login successful!");
-        // Redirect to Home page after successful login
-        navigate("/");
+        dispatch(login(storedUser)); 
+        navigate("/"); 
       } else {
         alert("Invalid credentials. Please try again.");
       }
@@ -53,7 +54,6 @@ const Login = () => {
         <form className="sign-in-form" onSubmit={formikSignIn.handleSubmit}>
           <h2 className="title">Sign in</h2>
           <div className="input-field">
-            <i className="fas fa-user"></i>
             <input
               type="text"
               placeholder="Username"
@@ -67,7 +67,6 @@ const Login = () => {
             )}
           </div>
           <div className="input-field">
-            <i className="fas fa-lock"></i>
             <input
               type="password"
               placeholder="Password"
@@ -96,7 +95,6 @@ const Login = () => {
         <form className="sign-up-form" onSubmit={formikSignUp.handleSubmit}>
           <h2 className="title">Sign up</h2>
           <div className="input-field">
-            <i className="fas fa-user"></i>
             <input
               type="text"
               placeholder="Username"
@@ -110,7 +108,6 @@ const Login = () => {
             )}
           </div>
           <div className="input-field">
-            <i className="fas fa-envelope"></i>
             <input
               type="email"
               placeholder="Email"
@@ -124,7 +121,6 @@ const Login = () => {
             )}
           </div>
           <div className="input-field">
-            <i className="fas fa-lock"></i>
             <input
               type="password"
               placeholder="Password"
@@ -148,18 +144,17 @@ const Login = () => {
         </form>
       </div>
 
-      {/* Overlay for switching between sign-in and sign-up */}
       <div className="overlay-container">
         <div className="overlay">
           <div className="overlay-panel overlay-left">
-            <h3>Already have an account?</h3>
-            <p>Sign in to stay connected!</p>
-            <button className="btn transparent" onClick={() => setSignUpMode(false)}>Sign In</button>
+            <h1>Welcome Back!</h1>
+            <p>To keep connected with us please login with your personal info</p>
+            <button className="btn ghost" onClick={() => setSignUpMode(false)}>Sign In</button>
           </div>
           <div className="overlay-panel overlay-right">
-            <h3>New here?</h3>
-            <p>Sign up and discover great content!</p>
-            <button className="btn transparent" onClick={() => setSignUpMode(true)}>Sign Up</button>
+            <h1>Hello, Friend!</h1>
+            <p>Enter your personal details and start your journey with us</p>
+            <button className="btn ghost" onClick={() => setSignUpMode(true)}>Sign Up</button>
           </div>
         </div>
       </div>

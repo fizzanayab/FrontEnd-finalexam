@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Shop.css'; // Assuming you'll have a CSS file for styling
+import './Shop.css'; 
 import Mainnav from '../../header/pagesnav/Mainnav';
 import Footer from '../../footer/pagesfooter/Footer';
 const products = [
@@ -8,7 +8,7 @@ const products = [
   { id: 2, name: 'Artificial Fur Coat', price: 60.00, img: 'image_url_2' },
   { id: 3, name: 'Barrio Clamshell Bag', price: 35.00, img: 'image_url_3' },
   { id: 4, name: 'Buttoned Waist Bag', price: 27.00, img: 'image_url_4' },
-  // Add more products as needed
+  
 ];
 
 const Shop = () => {

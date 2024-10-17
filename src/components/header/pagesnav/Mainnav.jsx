@@ -8,7 +8,7 @@ const Mainnav = () => {
   const [navbarBackground, setNavbarBackground] = React.useState(false);
   const [showIcons, setShowIcons] = React.useState(false);
   const [showSideMenu, setShowSideMenu] = React.useState(false);
-  const navigate = useNavigate(); // Using navigate to handle redirections
+  const navigate = useNavigate(); 
 
   const handleScroll = () => {
     setNavbarBackground(window.scrollY > 100);
@@ -30,23 +30,23 @@ const Mainnav = () => {
   };
 
   const handleCartClick = () => {
-    navigate('/login'); // Redirect to login page
+    navigate('/login'); 
   };
 
   const handleBlogClick = () => {
-    navigate('/blog'); // Redirect to Blog page
+    navigate('/blog'); 
   };
 
   const handleShopClick = () => {
-    navigate('/shop'); // Redirect to Shop page
+    navigate('/shop'); 
   };
 
   const handlePortfolioClick = () => {
-    navigate('/portfolio'); // Redirect to Portfolio page
+    navigate('/portfolio'); 
   };
 
   const handleContactClick = () => {
-    navigate('/contact'); // Redirect to Contact page
+    navigate('/contact'); 
   };
 
   return (

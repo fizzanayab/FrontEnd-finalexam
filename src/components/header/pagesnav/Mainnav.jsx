@@ -1,52 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'; 
 import { Navbar, Nav, Button, NavDropdown } from 'react-bootstrap';
 import { FaBars, FaSearch, FaPhone, FaEllipsisV, FaShoppingBag } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom'; // Import useLocation
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../../features/authSlice'; 
 import './Mainnav.css';
 
 const Mainnav = () => {
-  const [navbarBackground, setNavbarBackground] = React.useState(false);
-  const [showIcons, setShowIcons] = React.useState(false);
-  const [showSideMenu, setShowSideMenu] = React.useState(false);
-  const navigate = useNavigate(); 
+  const [navbarBackground, setNavbarBackground] = useState(false);
+  const [showIcons, setShowIcons] = useState(false);
+  const [showSideMenu, setShowSideMenu] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation(); // To get the previous page
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  
+  // Change shopping bag color based on login state
+  const cartIconColor = isLoggedIn ? 'orange' : 'white';
 
   const handleScroll = () => {
     setNavbarBackground(window.scrollY > 100);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-  const toggleIcons = () => {
-    setShowIcons(!showIcons);
-  };
-
-  const toggleSideMenu = () => {
-    setShowSideMenu(!showSideMenu);
-  };
-
   const handleCartClick = () => {
-    navigate('/login'); 
+    if (isLoggedIn) {
+      navigate('/shoppingbag'); // Redirect to shopping bag page if logged in
+    } else {
+      navigate('/login', { state: { from: location.pathname } }); // Pass the previous page to the login
+    }
   };
 
-  const handleBlogClick = () => {
-    navigate('/blog'); 
-  };
-
-  const handleShopClick = () => {
-    navigate('/shop'); 
-  };
-
-  const handlePortfolioClick = () => {
-    navigate('/portfolio'); 
-  };
-
-  const handleContactClick = () => {
-    navigate('/contact'); 
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate('/'); // Redirect to home page after logging out
   };
 
   return (
@@ -55,12 +48,10 @@ const Mainnav = () => {
         <div className="left-section">
           <Nav className="d-none d-lg-flex">
             <Nav.Link href="/">HOME</Nav.Link>
-            <NavDropdown title="PORTFOLIO" id="portfolio-dropdown">
-              <NavDropdown.Item onClick={handlePortfolioClick}>Portfolio</NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link onClick={handleBlogClick}>BLOG</Nav.Link> {/* BLOG redirects to /blog */}
-            <Nav.Link onClick={handleShopClick}>SHOP</Nav.Link> {/* SHOP redirects to /shop */}
-            <Nav.Link onClick={handleContactClick}>CONTACT</Nav.Link> {/* CONTACT replaces PAGE */}
+            <Nav.Link onClick={() => navigate('/portfolio')}>PORTFOLIO</Nav.Link>
+            <Nav.Link onClick={() => navigate('/blog')}>BLOG</Nav.Link>
+            <Nav.Link onClick={() => navigate('/shop')}>SHOP</Nav.Link>
+            <Nav.Link onClick={() => navigate('/contact')}>CONTACT</Nav.Link>
           </Nav>
         </div>
 
@@ -78,16 +69,25 @@ const Mainnav = () => {
             <span className="ms-2 phone">(+68) 120034509</span>
           </div>
           <div className="icons d-none d-xl-flex">
-            <FaShoppingBag className="cart-icon" onClick={handleCartClick} style={{ cursor: 'pointer' }} />
+            <FaShoppingBag 
+              className="cart-icon" 
+              onClick={handleCartClick} 
+              style={{ cursor: 'pointer', color: cartIconColor }} 
+            />
             <FaSearch className="search-icon" />
           </div>
+          {isLoggedIn && (
+            <NavDropdown title="Account" id="account-dropdown">
+              <NavDropdown.Item onClick={handleLogout}>Log Out</NavDropdown.Item>
+            </NavDropdown>
+          )}
         </div>
 
-        <Button variant="outline-primary" className="d-xl-none" onClick={toggleIcons}>
+        <Button variant="outline-primary" className="d-xl-none" onClick={() => setShowIcons(!showIcons)}>
           <FaEllipsisV />
         </Button>
 
-        <Button variant="outline-primary" className="d-lg-none navbar-toggler" onClick={toggleSideMenu}>
+        <Button variant="outline-primary" className="d-lg-none navbar-toggler" onClick={() => setShowSideMenu(!showSideMenu)}>
           <FaBars />
         </Button>
       </div>

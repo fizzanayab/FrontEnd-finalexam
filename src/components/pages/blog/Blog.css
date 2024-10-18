@@ -1,75 +1,243 @@
-.blog-container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
+
+  
+  .blog-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .blog-header {
     text-align: center;
-    margin-bottom: 40px;
-  }
+    margin-bottom: 20px;
+    background-image: url(../../img/blog/blogheader-bg.jpg);
   
-  .blog-header h1 {
-    font-size: 36px;
-  }
-  
-  .blog-header p {
-    color: #888;
   }
   
   .blog-content {
     display: flex;
+    justify-content: space-between;
+    width: 90%;
   }
   
   .blog-posts {
-    flex: 3;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
+    width: 70%;
   }
   
   .blog-post {
-    background: #fff;
+    width: 30%;
+    position: relative;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
   }
   
-  .blog-post img {
-    width: 100%;
-    height: auto;
+  .blog-post:hover {
+    transform: scale(1.05);
   }
   
-  .post-details h4 {
-    margin: 10px 0;
+  .blog-post .post-details {
+    margin-top: 15px;
   }
   
-  .blog-sidebar {
-    flex: 1;
-    margin-left: 40px;
-  }
-  
-  .search-bar input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .categories, .featured-posts, .archives {
-    margin-bottom: 40px;
-  }
-  
-  .categories h4, .featured-posts h4, .archives h4 {
+  .blog-post .post-details h4 {
     margin-bottom: 10px;
   }
   
-  .categories ul, .featured-posts ul, .archives ul {
+  .blog-sidebar {
+    width: 25%;
+  }
+  
+  .blog-sidebar .search-bar {
+    margin-bottom: 20px;
+  }
+  
+  .blog-sidebar input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .categories ul,
+  .featured-posts ul,
+  .archives ul {
     list-style: none;
     padding: 0;
   }
   
-  .categories li, .featured-posts li, .archives li {
-    margin-bottom: 10px;
-    color: #555;
+  .categories ul li,
+  .featured-posts ul li,
+  .archives ul li {
+    cursor: pointer;
+    padding: 8px;
+    transition: background-color 0.3s;
   }
+  
+  .categories ul li:hover,
+  .featured-posts ul li:hover,
+  .archives ul li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .blog-post[data-id='1'] {
+    background-image: url('../../img/blog/totoutrial11-kitchen1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  
+  .blog-post[data-id='2'] {
+    background-image: url('../../img/blog/totoutrial8-kitchen2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='3'] {
+    background-image: url('../../img/blog/kitchen3.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='4'] {
+    background-image: url('../../img/blog/kitchen4.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='5'] {
+    background-image: url('../../img/blog/kitchen5.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='6'] {
+    background-image: url('../../img/blog/kitchen6.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='7'] {
+    background-image: url('../../img/blog/kitchen7.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='8'] {
+    background-image: url('../../img/blog/kitchen8.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='9'] {
+    background-image: url('../../img/blog/kitchen9.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  
+  
+  .blog-post[data-id='10'] {
+    background-image: url('../../img/blog/toutrail-travel-1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  
+  .blog-post[data-id='11'] {
+    background-image: url('../../img/blog/toutrail-travel-1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  
+  .blog-post[data-id='12'] {
+    background-image: url('../../img/blog/totoutrial2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='13'] {
+    background-image: url('../../img/blog/totoutrial3.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='14'] {
+    background-image: url('../../img/blog/totoutrial4.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='15'] {
+    background-image: url('../../img/blog/totoutrial5.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='16'] {
+    background-image: url('../../img/blog/totoutrial5.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='17'] {
+    background-image: url('../../img/blog/totoutrial6.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='18'] {
+    background-image: url('../../img/blog/totoutrial7.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='19'] {
+    background-image: url('../../img/blog/totoutrial8-kitchen2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='20'] {
+    background-image: url('../../img/blog/totoutrial9.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='21'] {
+    background-image: url('../../img/blog/totoutrial10.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='22'] {
+    background-image: url('../../img/blog/totoutrial11-kitchen1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='23'] {
+    background-image: url('../../img/blog/totoutrial11-kitchen1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='24'] {
+    background-image: url('../../img/blog/totoutrial12.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  .blog-post[data-id='25'] {
+    background-image: url('../../img/blog/totoutrial13.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  
+  
   

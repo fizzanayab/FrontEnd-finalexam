@@ -2,15 +2,15 @@
   position: fixed !important;
   top: 0;
   width: 100%;
-  z-index: 10; /* Ensures it's layered above the slider */
-  background-color: transparent; /* Fully transparent on load */
+  z-index: 10; 
+  background-color: transparent; 
   transition: background-color 0.5s ease;
   padding: 20px;
-  color: aliceblue;
+  color: aliceblue ;
 }
 
 .navbar.scrolled {
-  background-color: rgba(0, 0, 0, 0.85); /* Darken when scrolled */
+  background-color: rgba(0, 0, 0, 0.85); 
 }
 
 
@@ -25,6 +25,39 @@
   display: flex;
   align-items: center;
 }
+
+.menunav {
+  color: #fff !important;
+  font-weight: 600 !important;
+  margin-left: 35px !important;
+  position: relative; /* Necessary for positioning the pseudo-element */
+  text-decoration: none; /* Remove default underline */
+}
+
+/* Change text color on hover */
+.menunav:hover {
+  color: orange !important; /* Change text color on hover */
+}
+
+/* Create an underline effect */
+.menunav::after {
+  content: '';
+  position: absolute;
+  left: 0; /* Start from the left */
+  bottom: -2px; /* Position just below the text */
+  width: 100%; /* Full width */
+  height: 2px; /* Thickness of the underline */
+  background-color: orange; /* Underline color */
+  transform: scaleX(0); /* Start with no visible underline */
+  transform-origin: left; /* Ensure the scaling starts from the left */
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+/* Scale to full width on hover */
+.menunav:hover::after {
+  transform: scaleX(1); /* Expand to full width on hover */
+}
+
 
 .navbar .center-logo {
   position: absolute;
@@ -47,6 +80,9 @@
 .navbar .right-section .search-icon {
   margin-left: 15px;
 }
+
+
+
 
 .phone-number {
   padding: 0;

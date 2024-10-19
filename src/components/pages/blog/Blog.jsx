@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link for navigation
 import './Blog.css'; 
 import Mainnav from '../../header/pagesnav/Mainnav';
 import Footer from '../../footer/pagesfooter/Footer';
@@ -54,10 +55,12 @@ const Blog = () => {
         <div className="blog-posts">
           {filteredPosts.map((post) => (
             <div className="blog-post" data-id={post.id} key={post.id}>
-              <div className="post-details">
-                <h4>{post.title}</h4>
-                <p>{post.content}</p>
-              </div>
+              <Link to={`/blog/${post.id}`} className="post-link"> {/* Link to BlogDetail */}
+                <div className="post-details">
+                  <h4>{post.title}</h4>
+                  <p>{post.content}</p>
+                </div>
+              </Link>
             </div>
           ))}
         </div>

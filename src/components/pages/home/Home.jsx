@@ -1,15 +1,33 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; 
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import AppNavbar from '../../header/homenav/HomeNav';
 import Slider from '../../utilities/slider/Slider';
-import './Home.css'; 
+import './Home.css';
 
 const Home = () => {
+  const [opacity, setOpacity] = useState(1);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const maxHeight = 400; 
+      const newOpacity = Math.max(1 - scrollTop / maxHeight, 0.3); 
+      setOpacity(newOpacity);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div>
       <AppNavbar />
-      <Slider />
-      
+      <div style={{ opacity }}>
+        <Slider />
+      </div>
+
       {/* Coffee Section */}
       <section className="coffee-section">
         <div className="content-wrapper">
@@ -38,7 +56,7 @@ const Home = () => {
       {/* Menu Section */}
       <section className="menu-section">
         <h2 className="menu-heading">Discover Our Menu</h2>
-        <Link to="/login" className="menu-link"> {/* Link to login page */}
+        <Link to="/login" className="menu-link">
           <div className="menu-wrapper">
             {/* Starter */}
             <div className="menu-category">

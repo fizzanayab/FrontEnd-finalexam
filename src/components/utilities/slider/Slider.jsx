@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './Slider.css';
+import coffeeLogo from '../../img/slider/sliderlogo.png'; 
+import circlerotate from '../../img/slider/slideranimation.png'; 
+import orangeArrow from '../../img/slider/srroworange.png'; 
+import smalltext from '../../img/slider/smalltext1.png'; 
+import maintext from '../../img/slider/maintext.png';    
 
 const slides = [
   {
@@ -8,87 +13,75 @@ const slides = [
   {
     eachSlide: 'url(https://retrolie.thememove.com/wp-content/uploads/2019/05/slider-h7-bg-2.jpg)',
   },
-
 ];
 
 const Slider = () => {
   const [active, setActive] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
+  const [animating, setAnimating] = useState(false);
+  const [logoAnimating, setLogoAnimating] = useState(false); // Add state for logo animation
   const max = slides.length;
 
-  const intervalBetweenSlides = () => autoplay && setActive(active === max - 1 ? 0 : active + 1);
-
   useEffect(() => {
-    const interval = setInterval(() => intervalBetweenSlides(), 3000);
+    const interval = setInterval(() => {
+      if (autoplay) {
+        triggerSlideChange();
+      }
+    }, 5000);
     return () => clearInterval(interval);
   }, [active, autoplay]);
 
-  const toggleAutoPlay = () => setAutoplay(!autoplay);
-  const nextOne = () => active < max - 1 && setActive(active + 1);
-  const prevOne = () => active > 0 && setActive(active - 1);
-  const isActive = (value) => (active === value ? 'active' : '');
-
-  const setSliderStyles = () => {
-    const transition = active * -100;
-    return {
-      width: slides.length * 100 + 'vw',
-      transform: 'translateX(' + transition + 'vw)',
-    };
+  const triggerSlideChange = () => {
+    setLogoAnimating(true); // Trigger logo to move up before slide change
+    setTimeout(() => {
+      setAnimating(true);
+      setTimeout(() => {
+        setActive(active === max - 1 ? 0 : active + 1);
+        setAnimating(false);
+        setLogoAnimating(false); // Reset logo animation to move down after slide change
+      }, 1000);
+    }, 500); // Delay for logo movement
   };
+
+  const nextOne = () => triggerSlideChange();
+  const prevOne = () => setActive(active === 0 ? max - 1 : active - 1);
 
   const renderSlides = () =>
     slides.map((item, index) => (
-      <div className="each-slide" key={index} style={{ backgroundImage: item.eachSlide }}></div>
+      <div
+        className={`each-slide ${active === index ? 'fade-in' : 'fade-out'}`}
+        key={index}
+        style={{ backgroundImage: item.eachSlide }}
+      ></div>
     ));
-
-  const renderDots = () =>
-    slides.map((_, index) => (
-      <li className={`${isActive(index)} dots`} key={index}>
-        <button onClick={() => setActive(index)}>
-          <span>&#9679;</span>
-        </button>
-      </li>
-    ));
-
-  const renderPlayStop = () =>
-    autoplay ? (
-      <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24">
-        <path d="M0 0h24v24H0z" fill="none" />
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" />
-      </svg>
-    ) : (
-      <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24">
-        <path d="M0 0h24v24H0z" fill="none" />
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
-      </svg>
-    );
-
-  const renderArrows = () => (
-    <>
-      <button type="button" className="arrows prev" onClick={() => prevOne()}>
-        <svg fill="#FFFFFF" width="50" height="50" viewBox="0 0 24 24">
-          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-          <path d="M0 0h24v24H0z" fill="none" />
-        </svg>
-      </button>
-      <button type="button" className="arrows next" onClick={() => nextOne()}>
-        <svg fill="#FFFFFF" height="50" viewBox="0 0 24 24" width="50">
-          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-          <path d="M0 0h24v24H0z" fill="none" />
-        </svg>
-      </button>
-    </>
-  );
 
   return (
     <section className="slider">
-      <div className="wrapper" style={setSliderStyles()}>
+      <div className="wrapper">
         {renderSlides()}
       </div>
-      {renderArrows()}
-      <ul className="dots-container">{renderDots()}</ul>
-      <button type="button" className="toggle-play" onClick={toggleAutoPlay}>
-        {renderPlayStop()}
+      <div className={`slider-content ${animating ? 'animating' : ''}`}>
+        <div className="logo-container">
+          <img 
+            src={coffeeLogo} 
+            alt="Coffee Logo" 
+            className={`coffee-logo ${logoAnimating ? 'animate-logo-up' : 'animate-logo-down'}`} 
+          />
+        </div>
+        <img src={maintext} alt="Main Text" className={`main-text ${animating ? 'animate-main' : 'zoom-in'}`} />
+        <div className="small-text-container">
+          <img src={smalltext} alt="Small Text" className={`small-text ${animating ? 'animate-small' : ''}`} />
+        </div>
+      </div>
+      <div className="circle-container">
+        <img src={circlerotate} alt="Rotating Circle" className="rotating-circle" />
+        <img src={orangeArrow} alt="Down Arrow" className="down-arrow" />
+      </div>
+      <button type="button" className="arrows prev" onClick={() => prevOne()}>
+        <span className="arrow left"></span>
+      </button>
+      <button type="button" className="arrows next" onClick={() => nextOne()}>
+        <span className="arrow right"></span>
       </button>
     </section>
   );

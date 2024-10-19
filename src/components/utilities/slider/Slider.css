@@ -1,89 +1,321 @@
+/* General Slider Styles */
+/* General Slider Styles */
 .slider {
+  position: relative;
   width: 100vw;
-  height: 600px;
-  overflow: hidden;
-  /* Ensure it starts at the top */
-}
-
-
-.wrapper {
-  display: flex; 
   height: 100vh;
-  transition: transform 0.5s ease; 
-}
-
-.arrows {
-  position: absolute;
-  top: 50%;
-  background: none;
-  height: 60px;
-  border: 0;
-  cursor: pointer;
-  transition: ease 0.3s all;
-  outline: none;
-}
-
-.arrows.prev {
-  left: 0;
-}
-
-.arrows.next {
-  right: 0;
-}
-
-.arrows:hover {
-  opacity: 0.7;
-}
-
-.dots-container {
-  /* position: absolute; */
-  width: auto;
-  text-align: center;
-  left: 50%;
-  bottom: 9px;
-  transform: translateX(-50%);
-  /* z-index: 10; */
-  list-style-type: none;
-}
-
-.dots-container li {
-  display: inline-block;
-  padding: 5px;
-}
-
-.dots-container li.active button {
-  color: #00d8ff;
-}
-
-.dots-container li button {
-  color: #fff;
-  background-color: transparent;
-  border: none;
-}
-
-.dots-container li button:hover {
-  opacity: 0.7;
-  cursor: pointer;
-}
-
-.toggle-play {
-  background: transparent;
-  border: none;
-  position: absolute;
-  right: 5%;
-  bottom: 9px;
-  color: white;
-}
-
-.toggle-play:hover {
-  opacity: 0.7;
-  cursor: pointer;
+  overflow: hidden;
 }
 
 .each-slide {
-  width: 100vw; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
-  flex-shrink: 0; 
   background-size: cover;
   background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Smooth fade transition */
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.slider-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 10;
+}
+
+/* Arrow button styles */
+.arrows {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  width: 3vw; 
+  height: 3vw; 
+  border-radius: 50%;
+  background-color: rgba(83, 81, 81, 0.527); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease-in-out;
+}
+
+.arrows.prev {
+  left: 2vw; 
+}
+
+.arrows.next {
+  right: 2vw; 
+}
+
+.arrows .arrow {
+  width: 1vw; 
+  height: 1vw; 
+  background: no-repeat center/contain;
+  transition: all 0.4s ease-in-out;
+}
+
+.arrow.left {
+  background-image: url('./../../img/slider/rightarrow.png'); 
+}
+
+.arrow.right {
+  background-image: url('./../../img/slider/leftarrow.png'); 
+}
+
+/* Hover effect */
+.arrows:hover {
+  width: 4vw; 
+  height: 4vw; 
+  background: url(../../img/slider/slidersidetoside.jpg) center/cover no-repeat;
+}
+
+.arrows:hover .arrow {
+  display: none; 
+}
+
+/* Animations */
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes logoSlideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+}
+
+@keyframes logoSlideDown {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* Define animation classes */
+.logo-container {
+  margin-bottom: 2vh;
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition */
+}
+
+.main-text {
+  margin: 2vh 0;
+  transition: transform 0.5s ease;
+}
+
+.small-text-container {
+  position: relative;
+  margin-top: 1vh;
+}
+
+.small-text {
+  margin: 2vh 0;
+  opacity: 1;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Logo Up-Down Animation */
+@keyframes logoSlideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50px); /* Move logo up */
+    opacity: 0;
+  }
+}
+
+@keyframes logoSlideDown {
+  0% {
+    transform: translateY(-50px); /* Start up position */
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0); /* Move logo down */
+    opacity: 1;
+  }
+}
+
+/* Animation classes */
+.animate-logo-up {
+  animation: logoSlideUp 0.5s forwards; /* Moves logo up before slide change */
+}
+
+.animate-logo-down {
+  animation: logoSlideDown 0.5s forwards; /* Moves logo down after slide change */
+}
+
+.main-text {
+  margin: 2vh 0;
+  transition: transform 0.5s ease;
+}
+
+/* Zoom-in animation */
+.zoom-in {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.animate-main {
+  animation: zoomIn 1s forwards; /* Use zoom-in animation */
+}
+
+.animate-small {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* Center the content */
+.circle-container {
+  position: absolute;
+  bottom: 5vh; 
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10; 
+}
+
+.rotating-circle {
+  width: 6vw; 
+  height: 6vw; 
+  animation: rotate 18s linear infinite;
+}
+
+.down-arrow {
+  position: absolute;
+  width: 1vw; 
+  height: 2vw; 
+  bottom: 3vh; 
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Media Queries for Different Devices */
+@media (max-width: 768px) {
+  .arrows {
+    width: 8vw; 
+    height: 8vw;
+  }
+
+  .arrows .arrow {
+    width: 3vw; 
+    height: 3vw;
+  }
+
+  .logo-container {
+    margin-bottom: 5vh;
+  }
+
+  .main-text {
+    font-size: 5vw; 
+  }
+
+  .small-text {
+    font-size: 4vw; 
+  }
+
+  .rotating-circle {
+    width: 6vw; 
+    height: 6vw;
+  }
+
+  .down-arrow {
+    width: 2.5vw; 
+    height: 2.5vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .arrows {
+    width: 10vw; 
+    height: 10vw;
+  }
+
+  .arrows .arrow {
+    width: 4vw; 
+    height: 4vw;
+  }
+
+  .main-text {
+    font-size: 6vw; 
+  }
+
+  .small-text {
+    font-size: 5vw; 
+  }
+
+  .rotating-circle {
+    width: 7vw; 
+    height: 7vw;
+  }
+
+  .down-arrow {
+    width: 3vw; 
+    height: 3vw;
+  }
 }

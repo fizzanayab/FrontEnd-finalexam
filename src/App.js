@@ -8,6 +8,8 @@ import Shop from './components/pages/shop/Shop';
 import Contact from './components/pages/contact/Contact';
 import Login from './components/pages/login/Login';
 import ShoppingBag from './components/pages/shoppingbag/ShoppingBag'; 
+import BlogDetail from './components/pages/blog/BlogDetail';
+import portofoiliodetails from './components/pages/portfolio/portofoiliodetails';
 
 const App = () => {
   return (
@@ -16,7 +18,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/portfolio/:id" element={<portofoiliodetails/>} />
+
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<BlogDetail />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />

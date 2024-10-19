@@ -1,4 +1,3 @@
-// src/components/AppNavbar.js
 import React, { useState, useEffect } from 'react'; 
 import { Navbar, Nav, Button, NavDropdown } from 'react-bootstrap';
 import { FaBars, FaSearch, FaPhone, FaEllipsisV, FaShoppingBag } from 'react-icons/fa';
@@ -31,27 +30,27 @@ const AppNavbar = () => {
 
   const handleCartClick = () => {
     if (isLoggedIn) {
-      navigate('/shoppingbag'); // Redirect to shopping bag page if logged in
+      navigate('/shoppingbag'); 
     } else {
-      navigate('/login'); // Redirect to login page if not logged in
+      navigate('/login'); 
     }
   };
 
   const handleLogout = () => {
     dispatch(logout());
-    navigate('/'); // Redirect to home page after logging out
+    navigate('/'); 
   };
 
   return (
     <Navbar expand="lg" className={`navbar ${navbarBackground ? 'scrolled' : ''}`}>
       <div className="container-fluid">
         <div className="left-section">
-          <Nav className="d-none d-lg-flex">
-            <Nav.Link href="/">HOME</Nav.Link>
-            <Nav.Link onClick={() => navigate('/portfolio')}>PORTFOLIO</Nav.Link>
-            <Nav.Link onClick={() => navigate('/blog')}>BLOG</Nav.Link>
-            <Nav.Link onClick={() => navigate('/shop')}>SHOP</Nav.Link>
-            <Nav.Link onClick={() => navigate('/contact')}>CONTACT</Nav.Link>
+          <Nav className="d-none d-lg-flex ">
+            <Nav.Link className='menunav' href="/">HOME</Nav.Link>
+            <Nav.Link  className='menunav' onClick={() => navigate('/portfolio')}>PORTFOLIO</Nav.Link>
+            <Nav.Link className='menunav' onClick={() => navigate('/blog')}>BLOG</Nav.Link>
+            <Nav.Link className='menunav' onClick={() => navigate('/shop')}>SHOP</Nav.Link>
+            <Nav.Link className='menunav' onClick={() => navigate('/contact')}>CONTACT</Nav.Link>
           </Nav>
         </div>
 

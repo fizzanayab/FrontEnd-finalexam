@@ -74,7 +74,6 @@ const Mainnav = () => {
               onClick={handleCartClick} 
               style={{ cursor: 'pointer', color: cartIconColor }} 
             />
-            <FaSearch className="search-icon" />
           </div>
           {isLoggedIn && (
             <NavDropdown title="Account" id="account-dropdown">

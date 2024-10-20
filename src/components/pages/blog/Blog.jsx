@@ -60,7 +60,9 @@ const Blog = () => {
                   <h4>{post.title}</h4>
                   <p>{post.content}</p>
                 </div>
-              </Link>
+                </Link>
+              {/* Learn More button */}
+              <Link to={`/blog/${post.id}`} className="button learn-more-button">Learn More</Link>
             </div>
           ))}
         </div>

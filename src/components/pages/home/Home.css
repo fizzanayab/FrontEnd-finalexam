@@ -1,62 +1,121 @@
-body, html {
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
+
+
+body,
+html {
   margin: 0;
   padding: 0;
   width: 100%;
   overflow-x: hidden;
+  background-color: rgb(252, 250, 250) !important;
 }
 
 
 .slider-section {
   transition: opacity 0.5s ease-out;
 }
+
 /* Coffee Section */
 .coffee-section {
   background-image: url('https://retrolie.thememove.com/wp-content/uploads/2019/03/h7-testi-bg.png');
   background-size: cover;
   background-position: center;
   text-align: center;
-  padding: 100px 20px;
+  padding: 100px 50px !important;
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: aliceblue;
+  position: relative;
+  overflow: hidden;
 }
 
 .cup-container {
-  position: relative; 
-  display: inline-block; }
+  display: inline-block;
+  z-index: 2;
+  margin-top: 30% !important;
+
+}
 
 .bouncing-cup {
-  animation: bounce 2s infinite;
-  width: 200px; 
+  animation: smooth-up-down 4s ease-in-out infinite;
+  width: 500px;
+  z-index: 2;
+  position: relative;
+
 }
+
+.coffee-title {
+  position: absolute;
+  font-size: 220px;
+  font-weight: 700;
+  z-index: 1;
+  color: rgba(0, 0, 0, 0.1);
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Times New Roman', Times, serif;
+  letter-spacing: 2px;
+
+}
+
+.coffee-title1 {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 700;
+  z-index: 1;
+  color: rgb(88, 67, 36);
+  top: 14%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: sans-serif;
+  letter-spacing: 2px;
+}
+
+.coffee-description {
+  font-size: 30px;
+  color: #553f2b !important;
+  margin-top: 90px !important;
+  z-index: 3;
+  font-family: Playfair Display !important;
+  font-style: italic;
+}
+
+
 
 .beans-background {
-  position: absolute; 
-  top: 60%; 
-  transform: translate(-50%, -50%); 
-  width: 120%; 
-  height: auto; 
-  z-index: 1; 
+  position: absolute;
+  top: 40%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  width: 120vw;
+  height: auto;
+  z-index: 0;
+  opacity: 0.8;
 }
 
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+.signature {
+  margin-top: 50px;
+  z-index: 3;
+}
+
+/* Smooth up and down animation */
+@keyframes smooth-up-down {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
-  40% {
-    transform: translateY(-30px);
-  }
-  60% {
-    transform: translateY(-15px);
+
+  50% {
+    transform: translateY(-20px);
   }
 }
 
 
-/* Menu Section */
 .menu-section {
   background-image: url('https://retrolie.thememove.com/wp-content/uploads/2019/03/h7-testi-bg.png');
   background-size: cover;
@@ -66,26 +125,35 @@ body, html {
   text-align: center;
 }
 
+.category-title {
+  margin-left: -80% !important;
+  font-weight: 800;
+  font-family: sans-serif !important;
+
+
+}
+
 .menu-heading {
-  font-family: 'Georgia', serif;
-  color: #333;
-  font-size: 36px;
+  font-family: Rozha One;
+  color: #4F3230;
+  font-size: 46px;
   margin-bottom: 40px;
 }
 
 .menu-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-  gap: 20px;
-  max-width: 1200px;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  max-width: 1500px;
   margin: 0 auto;
+  margin-left: 25% !important;
 }
 
 .menu-category h3 {
   font-family: 'Georgia', serif;
-  color: #FF5722;
+  color: rgb(228, 133, 25);
   font-size: 28px;
-  margin-bottom: 20px;
+
 }
 
 .menu-category ul {
@@ -93,82 +161,101 @@ body, html {
   padding: 0;
 }
 
-.menu-category li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
+.menu-category ul li {
+
+  margin-bottom: 40px !important;
 }
 
-.menu-category li img {
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-item img {
   width: 70px;
   height: 70px;
   margin-right: 20px;
   border-radius: 50%;
 }
 
-.menu-category li span {
+.menu-text {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.menu-text span {
   font-family: 'Georgia', serif;
   font-size: 18px;
   color: #333;
-  flex-grow: 1;
+  display: block;
 }
 
-.menu-category li p {
+.menu-text p {
   font-family: 'Arial', sans-serif;
   font-size: 14px;
   color: #777;
 }
 
-.menu-category .price {
+.menu-text .price {
   font-family: 'Georgia', serif;
   font-size: 16px;
   color: #FF5722;
 }
 
-/* Make it responsive */
-@media (max-width: 768px) {
-  .menu-wrapper {
-    grid-template-columns: 1fr; 
-  }
 
-  .coffee-title {
-    font-size: 50px; 
-  }
 
-  .menu-heading {
-    font-size: 28px; 
-  }
-
-  .menu-category h3 {
-    font-size: 24px; 
-  }
-
-  .menu-category li span {
-    font-size: 16px; 
-  }
+.menu-divider {
+  border: none;
+  border-top: 1px solid #CCC;
+  margin: 10px 0;
+  width: 50%;
 }
 
 
-/* New Menu Section */
+
+/* Make it responsive */
+@media (max-width: 768px) {
+  .menu-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .coffee-title {
+    font-size: 50px;
+  }
+
+  .menu-heading {
+    font-size: 28px;
+  }
+
+  .menu-category h3 {
+    font-size: 24px;
+  }
+
+  .menu-category li span {
+    font-size: 16px;
+  }
+}
+
+/* new menu */
 .new-menu-section {
-  padding: 60px 20px;
+  padding: 190px 20px;
   text-align: center;
   background-color: #fff;
 }
 
 .new-menu-heading {
-  font-size: 32px;
-  color: #333;
-  margin-bottom: 40px;
+  font-family: Rozha One;
+  color: #4F3230;
+  font-size: 40px;
+  margin-bottom: 30px;
 }
 
 .new-menu-wrapper {
   display: flex;
   justify-content: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .new-menu-item {
@@ -177,110 +264,332 @@ body, html {
   padding: 20px;
   border-radius: 10px;
   position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
+/* Image Wrapper */
 .image-wrapper {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
 }
 
 .new-menu-item img {
   width: 100%;
   border-radius: 10px;
-  transition: transform 0.3s ease-in-out;
 }
 
-.hover-overlay {
+/* Shining effect setup */
+.image-wrapper:after {
+  content: '';
   position: absolute;
   top: 0;
-  left: -100%;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.6));
-  transition: all 0.4s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.4);
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
 }
 
-.image-wrapper:hover img {
-  transform: scale(1.1);
+/* Animation for shine effect */
+@keyframes shine {
+  0% {
+    left: -100%;
+    opacity: 1;
+  }
+
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
 }
 
-.image-wrapper:hover .hover-overlay {
-  left: 100%;
+/* Hover effect */
+.image-wrapper:hover:after {
+  animation: shine 0.4s forwards;
 }
 
-.new-menu-item h3 {
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px !important;
+  height: 50px !important;
+  background-color: rgba(75, 42, 42, 0.452) !important;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  position: relative;
+  top: 50% !important;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(41, 23, 11, 0.8) !important;
+}
+
+#newMenuCarousel .carousel-item {
+  transition: transform 2s ease;
+}
+
+.carousel-item {
+  transition: transform 0.5s ease;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#newMenuCarousel:hover .carousel-control-prev,
+#newMenuCarousel:hover .carousel-control-next {
+  opacity: 1;
+
+}
+
+.new-menu-section .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+/* Adjust the horizontal gap between items */
+.row .col-lg-3 {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+
+.menu-title {
   font-size: 20px;
-  color: #ff5722;
+  color: #4F3230;
   margin-top: 20px;
+  position: relative;
+}
+
+.menu-title:hover {
+  color: #ff5722;
+
+}
+
+.menu-divider1 {
+  border: 1px solid #ff5722;
+  margin: 10px 0;
+  width: 100%;
 }
 
 .new-menu-item p {
   color: #666;
   margin-top: 10px;
 }
-            
+
+.button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 0;
+  color: #4F3230;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.button:hover {
+  color: orange;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 100%;
+  background-color: orange;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.button:hover::after {
+  transform: scaleX(1);
+}
 
 
+
+
+
+.new-menu-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.image-wrapper img {
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.new-menu-item:hover .hover-overlay {
+  opacity: 1;
+}
+
+.new-menu-item:hover img {
+  transform: scale(1.1);
+}
 
 /* Footer Section */
 .custom-footer {
   background-color: #333;
   color: #fff;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  padding: 200px 20px;
+  background-image: url('https://retrolie.thememove.com/wp-content/uploads/2019/01/blog-03.jpg'); /* Use your image URL */
+  background-repeat: no-repeat;
+  background-size: cover; 
+  position: relative; 
+  overflow: hidden; 
+}
+
+/* Overlay for dark transparency */
+.custom-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1; 
 }
 
 .footer-content {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   gap: 40px;
   margin-bottom: 30px;
+  position: relative; 
+  z-index: 2; 
+  flex-wrap: wrap; 
 }
 
-.footer-logo img {
-  width: 150px;
-}
-
-address p {
-  margin: 5px 0;
-  font-size: 16px;
-  color: #ddd;
-}
-
-.footer-bottom {
-  width: 100%;
+.footer-logo {
   display: flex;
-  justify-content: center;
+  flex-direction: column; 
+  align-items: flex-start; 
 }
 
-.footer-bottom img {
-  max-width: 100%;
-  border-radius: 10px;
-}
-/* Add this CSS for hover effect on menu items */
-.menu-link {
-  text-decoration: none; 
-  color: inherit; 
+.logo-img {
+  width: 350px; 
+  margin-bottom: 10px; 
 }
 
-.menu-category li:hover {
-  background-color: #f0f0f0; 
-  transition: background-color 0.3s ease; 
+.contact-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff6600; 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: not-allowed; 
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 5px; 
+  margin-left: 90px;
 }
 
-.menu-category img {
-  width: 70px; 
-  height: auto; 
+.footer-address {
+  font-size: 30px;
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
 }
 
-.category-title {
-  margin: 10px 0; 
+.address-title, .phone-title {
+  color: #ff6600; 
+  margin-bottom: 5px; 
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column; 
+    align-items: center; 
+    gap: 20px; 
+  }
+
+  .footer-address {
+    font-size: 24px; 
+  }
+}
+
+.footerend {
+  width: 100%;
+  height: 100px; 
+  background-color: #4F3230; 
+  display: flex; 
+  justify-content: space-around; 
+  align-items: center; 
+  padding: 0 20px; 
+}
+
+
+.social-links span {
+  cursor: pointer; 
+  color: #fff; 
+  position: relative; 
+  transition: color 0.3s ease; 
+  margin-left: 20px;
+}
+
+.social-links span::after {
+  content: ''; 
+  display: block;
+  width: 0; 
+  height: 2px; 
+  background: #ff6600; 
+  position: absolute; 
+  bottom: -2px; 
+  left: 0; 
+  transition: width 0.4s ease; 
+}
+
+.social-links span:hover {
+  color: #ff6600; 
+}
+
+.social-links span:hover::after {
+  width: 100%; 
+}
+
+
+.footer-right {
+  color: #ddd; 
+}
+
+
 
 
 /* width */
@@ -290,15 +599,37 @@ address p {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #3b342e; 
+  background: #3b342e;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: orange; 
+  background: orange;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: orangered; 
+  background: orangered;
+}
+
+@media (max-width: 992px) {
+  .bouncing-cup {
+    margin-top: 10px !important;
+    width: 300px;
+
+  }
+}
+
+@media (max-width: 1199px) {
+  .bouncing-cup {
+    margin-top: -40px !important;
+  }
+}
+
+@media (max-width: 786px) {
+  .bouncing-cup {
+    margin-top: 10px !important;
+    width: 200px;
+
+  }
 }

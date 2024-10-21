@@ -1,7 +1,9 @@
 .footer {
-    background-color: #3e2321;
+    background-color: #4F3230;
     color: white;
     padding: 50px 0;
+    position: relative;
+    bottom: 0;
   }
   
   .footer h5 {

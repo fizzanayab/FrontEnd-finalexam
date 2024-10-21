@@ -7,8 +7,8 @@
     color: aliceblue;
   }
   
-  .navbar.scrolled {
-    background-color: rgba(0, 0, 0, 0.85);
+  .navbar.scrolled1 {
+    background-color: rgb(255, 249, 249);
   }
   
   .navbar .container {

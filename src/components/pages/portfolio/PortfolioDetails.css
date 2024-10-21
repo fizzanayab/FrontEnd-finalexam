@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
+
+.portfolio-detail-header {
+    position: relative; /* Set position to relative for overlay positioning */
+    background-size: cover; 
+    background-position: center; 
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+/* Overlay Styles */
+.portfolio-detail-header::after {
+    content: ''; /* Create a pseudo-element for the overlay */
+    position: absolute; /* Position it absolutely within the header */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with transparency */
+    z-index: 1; /* Ensure it's on top of the background */
+}
+
+/* No hover effect, the overlay is always visible */
+.portfolio-detail-image {
+    max-width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    margin: 20px 0; /* Add some spacing around the image */
+    z-index: 2; /* Ensure the image is above the overlay */
+    position: relative; /* Set position to relative to stack above overlay */
+}
+
+.portfolio-detail-header h1 {
+    font-size: 46px;
+    margin: 0; /* Remove default margin */
+    z-index: 2; /* Ensure the heading is above the overlay */
+    position: relative; /* Set position to relative for stacking */
+    font-family: Rozha One;
+}
+
+
+
+.portfolio-detail-content {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 15% 0;
+}
+.portfolio-detail-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 20% 0;
+    padding: 10%;
+}
+
+.portfolio-detail-about {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.portfolio-detail-about h2 {
+    color: #4F3230;  
+    font-size: 36px;
+    font-family: Rozha One;
+
+}
+
+.portfolio-detail-about h3{
+    color: #4F3230;  
+      font-size: 12px;
+      font-family: Rozha One;
+
+
+}
+
+.portfolio-detail-content {
+    flex: 2;
+   
+
+
+}
+.portfolio-detail-content h2{
+     font-size: 36px;
+    color: #4F3230;
+    font-family: Rozha One;
+
+}
+
+.portfolio-detail-content hr {
+    margin-bottom: 20px;
+    border: none;
+    height: 2px;
+    background-color: #ccc; /* Change this to your desired color */
+}
+
+.portfolio-detail-categories h3 {
+    color: #4F3230;
+    font-size: 20px;
+}

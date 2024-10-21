@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'; 
 import { Navbar, Nav, Button, NavDropdown } from 'react-bootstrap';
-import { FaBars, FaSearch, FaPhone, FaEllipsisV, FaShoppingBag } from 'react-icons/fa';
+import { FaBars,  FaPhone, FaEllipsisV, FaShoppingBag } from 'react-icons/fa';
 import { useNavigate, useLocation } from 'react-router-dom'; // Import useLocation
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../features/authSlice'; 
@@ -43,7 +43,7 @@ const Mainnav = () => {
   };
 
   return (
-    <Navbar expand="lg" className={`navbar ${navbarBackground ? 'scrolled' : ''}`}>
+    <Navbar expand="lg" className={`navbar ${navbarBackground ? 'scrolled1' : ''}`}>
       <div className="container-fluid">
         <div className="left-section">
           <Nav className="d-none d-lg-flex">
@@ -57,7 +57,7 @@ const Mainnav = () => {
 
         <Navbar.Brand href="/" className="center-logo">
           <img
-            src="https://retrolie.thememove.com/wp-content/themes/retrolie/assets/images/light-logo@2x.png"
+            src="https://retrolie.thememove.com/wp-content/themes/retrolie/assets/images/dark-logo.png"
             alt="Logo"
             width="120"
           />

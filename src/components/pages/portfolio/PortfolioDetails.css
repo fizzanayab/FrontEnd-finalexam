@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
 
 .portfolio-detail-header {
-    position: relative; /* Set position to relative for overlay positioning */
+    position: relative; 
     background-size: cover; 
     background-position: center; 
     height: 800px;
@@ -15,30 +15,29 @@
 
 /* Overlay Styles */
 .portfolio-detail-header::after {
-    content: ''; /* Create a pseudo-element for the overlay */
-    position: absolute; /* Position it absolutely within the header */
+    content: ''; 
+    position: absolute; 
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with transparency */
-    z-index: 1; /* Ensure it's on top of the background */
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1; 
 }
 
-/* No hover effect, the overlay is always visible */
 .portfolio-detail-image {
-    max-width: 100%; /* Make the image responsive */
-    height: auto; /* Maintain aspect ratio */
-    margin: 20px 0; /* Add some spacing around the image */
-    z-index: 2; /* Ensure the image is above the overlay */
-    position: relative; /* Set position to relative to stack above overlay */
+    max-width: 100%; 
+    height: auto; 
+    margin: 20px 0; 
+    z-index: 2; 
+    position: relative; 
 }
 
 .portfolio-detail-header h1 {
     font-size: 46px;
-    margin: 0; /* Remove default margin */
-    z-index: 2; /* Ensure the heading is above the overlay */
-    position: relative; /* Set position to relative for stacking */
+    margin: 0; 
+    z-index: 2; 
+    position: relative; 
     font-family: Rozha One;
 }
 
@@ -93,7 +92,7 @@
     margin-bottom: 20px;
     border: none;
     height: 2px;
-    background-color: #ccc; /* Change this to your desired color */
+    background-color: #ccc; 
 }
 
 .portfolio-detail-categories h3 {

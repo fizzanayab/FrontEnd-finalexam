@@ -1,58 +1,157 @@
-.shop-container {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .filter-sidebar {
-    width: 20%;
-    padding: 20px;
-  }
-  
-  .products-section {
-    width: 75%;
-  }
-  
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  
-  .product-item {
-    position: relative;
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .product-item img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .hover-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .product-item:hover .hover-overlay {
-    opacity: 1;
-  }
-  
-  .product-item h3 {
-    margin: 10px 0;
-  }
-  
-  .product-item p {
-    color: #888;
-  }
-  
+@import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
+
+.product-item {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  height: auto;
+  max-height: 300px; /* Adjust max height as needed */
+  object-fit: cover;
+}
+
+.hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-item:hover .hover-overlay {
+  opacity: 1;
+}
+
+.shopping-bag-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.shopping-bag-btn:hover {
+  color: #ff6f61;
+}
+
+/* Category Sidebar */
+.category-sidebar {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f8f9fa; /* Light background */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.category-sidebar h5 {
+  margin-bottom: 15px;
+  font-weight: bold; /* Make the heading bold */
+  font-size: 1.25rem; /* Slightly larger font */
+  color: #4F3230;
+  font-family: Rozha One;
+
+}
+
+.category-sidebar ul {
+  padding-left: 0;
+  list-style-type: none; /* Remove default list styling */
+}
+
+.category-sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.category-sidebar button {
+  width: 100%; /* Full width buttons */
+  text-align: left; /* Align text to the left */
+  padding: 10px; /* Increase padding for better touch targets */
+  border: none; /* Remove default button borders */
+  background-color: transparent; /* Transparent background */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.category-sidebar button:hover {
+  background-color: #e2e6ea; /* Light grey on hover */
+}
+
+.category-sidebar button.active {
+  background-color: orange; /* Primary color for active button */
+  color: white; /* White text for better contrast */
+  font-weight: bold; /* Bold active button */
+}
+
+/* Animation Classes */
+.product-card {
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Start from below */
+  transition: opacity 1s ease, transform 1s ease; /* Slow down the transition */
+}
+
+.product-card.show {
+  opacity: 1; /* Show the product */
+  transform: translateY(0); /* Move to its final position */
+}
+
+.shop-label {
+  margin-top: 30px;
+  background-color: #f8f9fa; 
+  border-radius: 5px; 
+  box-shadow: 0 0 8px 8px white inset;
+  height: 90%;
+  background-image: url('../../img/blog/totoutrial15.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.shop-label h1 {
+  font-weight: bold; 
+  color: #ffffff; 
+  margin: 10%; 
+  font-family: Rozha One;
+  font-size: 46px;
+
+}
+.shop-label h1 {
+  font-weight: bold; 
+  color: #ffffff; 
+  margin: 10%; 
+  font-family: Rozha One;
+  font-size: 46px;
+
+}
+
+.shop-label  p a {
+  color: #ccc !important;
+  text-decoration: none;
+  position: relative; 
+  font-size: 26px;
+}
+
+.shop-label  p a::after {
+  content: ''; 
+  position: absolute; 
+  left: 0; 
+  bottom: -2px; 
+  width: 100%; 
+  height: 2px; 
+  background-color: orange; 
+  transform: scaleX(0); 
+  transition: transform 0.3s ease; 
+}
+
+.shop-label  p a:hover::after {
+  transform: scaleX(1); 
+}

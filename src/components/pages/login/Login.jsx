@@ -79,7 +79,7 @@ const Login = () => {
               <div className="error">{formikSignIn.errors.password}</div>
             )}
           </div>
-          <button className="btn solid" type="submit">Login</button>
+          <button className="btnforum solid" type="submit">Login</button>
           <p className="social-text">Or Sign in with social platforms</p>
           <div className="social-media">
             <SocialMedia icon_name="facebook-f" size="24px" color="#3b5998" />
@@ -133,7 +133,7 @@ const Login = () => {
               <div className="error">{formikSignUp.errors.password}</div>
             )}
           </div>
-          <button className="btn solid" type="submit">Sign Up</button>
+          <button className="btnforum  solid" type="submit">Sign Up</button>
           <p className="social-text">Or Sign up with social platforms</p>
           <div className="social-media">
             <SocialMedia icon_name="facebook-f" size="24px" color="#3b5998" />
@@ -147,14 +147,14 @@ const Login = () => {
       <div className="overlay-container">
         <div className="overlay">
           <div className="overlay-panel overlay-left">
-            <h1>Welcome Back!</h1>
-            <p>To keep connected with us please login with your personal info</p>
-            <button className="btn ghost" onClick={() => setSignUpMode(false)}>Sign In</button>
+            <h1>Login </h1>
+            <p>To open shoppingBag or buy thins from shop Must Login first!</p>
+            <button className="btnoverlay ghost" onClick={() => setSignUpMode(false)}>Sign In</button>
           </div>
           <div className="overlay-panel overlay-right">
-            <h1>Hello, Friend!</h1>
-            <p>Enter your personal details and start your journey with us</p>
-            <button className="btn ghost" onClick={() => setSignUpMode(true)}>Sign Up</button>
+            <h1>signup</h1>
+            <p>dont have account? sign up for new account </p>
+            <button className="btnoverlay ghost" onClick={() => setSignUpMode(true)}>Sign Up</button>
           </div>
         </div>
       </div>

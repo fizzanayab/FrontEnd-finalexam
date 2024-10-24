@@ -177,3 +177,7 @@
     order: 0;
   }
 }
+
+#account-dropdown {
+  margin-left: 40px; /* Adjust this value for larger or smaller margins */
+}

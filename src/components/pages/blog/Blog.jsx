@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link for navigation
+import { Link } from 'react-router-dom'; 
 import './Blog.css'; 
 import Mainnav from '../../header/pagesnav/Mainnav';
 import Footer from '../../footer/pagesfooter/Footer';
 
+// Blog post data
 const allPosts = [
   { id: 1, category: 'Kitchen', title: "Proof Bread When It's Cold Outside", content: "Winter months call for slow fermentation." },
   { id: 2, category: 'Kitchen', title: 'Is Your Bread Kneaded Enough?', content: 'Mastering the art of kneading bread.' },
@@ -45,38 +46,45 @@ const Blog = () => {
 
   return (
     <div className="blog-container-fluid">
+      {/* Navigation bar */}
       <Mainnav />
+      
+      {/* Blog header section */}
       <div className="blog-header">
-        <h1>Blog grid classic</h1>
-        <p>Home / Blog grid classic</p>
+        <h1>Blog Grid Classic</h1>
+        <p>Home / Blog Grid Classic</p>
       </div>
 
       <div className="blog-content">
+        {/* Blog posts grid */}
         <div className="blog-posts">
           {filteredPosts.map((post) => (
             <div className="blog-post" data-id={post.id} key={post.id}>
-              <Link to={`/blog/${post.id}`} className="post-link"> {/* Link to BlogDetail */}
+              <Link to={`/blog/${post.id}`} className="post-link">
                 <div className="post-details">
                   <h4>{post.title}</h4>
                   <p>{post.content}</p>
                 </div>
-                </Link>
+              </Link>
               {/* Learn More button */}
               <Link to={`/blog/${post.id}`} className="button learn-more-button">Learn More</Link>
             </div>
           ))}
         </div>
 
+        {/* Sidebar with categories and search */}
         <aside className="blog-sidebar">
+          {/* Search bar */}
           <div className="search-bar">
             <input
               type="text"
-              placeholder="Enter search keyword..."
+              placeholder="Search for blog posts..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
 
+          {/* Categories filter */}
           <div className="categories">
             <h4>Categories</h4>
             <ul>
@@ -87,23 +95,48 @@ const Blog = () => {
             </ul>
           </div>
 
+          {/* Featured Posts */}
           <div className="featured-posts">
-            <h4>Featured Posts</h4>
-            <ul>
-              <li>Post 1</li>
-              <li>Post 2</li>
-            </ul>
-          </div>
+  <h4>Featured Posts</h4>
+  <ul>
+    <li>
+      <div className="featured-post">
+        {/* Image container */}
+        <div className="post-image" style={{ backgroundImage: `url('../../img/blog/totoutrial11-kitchen1.jpg')` }}></div>
+        
+        {/* Post title below the image */}
+        <div className="post-title">
+          Proof Bread When It's Cold Outside
+        </div>
+      </div>
+    </li>
 
+    <li>
+      <div className="featured-post">
+        {/* Image container */}
+        <div className="post-image" style={{ backgroundImage: `url('../../img/blog/totoutrial2.jpg')` }}></div>
+        
+        {/* Post title below the image */}
+        <div className="post-title">
+          Sourdough Mastery: Cream Cheese Bread
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+          {/* Archives */}
           <div className="archives">
             <h4>Archives</h4>
             <ul>
-              <li>March 2018</li>
-              <li>January 2018</li>
+              <li>March 2023</li>
+              <li>January 2023</li>
             </ul>
           </div>
         </aside>
       </div>
+
+      {/* Footer section */}
       <Footer />
     </div>
   );

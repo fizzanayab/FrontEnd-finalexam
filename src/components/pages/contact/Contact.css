@@ -1,121 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
 .contact-page {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa; /* Light background color for contrast */
-  }
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #ffecde;
+  background-image: url('../../img/shop/wood.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+/* Header styles */
+.contact-header {
+  text-align: center;
+  margin-bottom: 40px;
   
-  .contact-header {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .contact-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: #333; /* Dark color for header */
-  }
-  
-  .contact-header p {
-    font-size: 1.2rem;
-    color: #555; /* Medium gray for paragraph text */
-  }
-  
+}
+
+.contact-header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  margin-top: 50px;
+  color: white;
+  font-family: 'Rozha One', serif;
+  text-shadow: 2px 2px  rgba(0, 0, 0, 0.925);
+}
+
+.contact-header p {
+  font-size: 2rem;
+  color: orange;
+  font-family: 'Rozha One', serif;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.788);
+
+}
+
+/* Details section */
+.contact-details {
+  display: flex;
+  flex-direction: column; /* Stack on smaller screens */
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.contact-info, .contact-map {
+  padding: 20px;
+  background-color: #fff; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-bottom: 20px; /* Space between sections */
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-map {
+  flex: 2;
+}
+
+/* Contact info styles */
+.contact-info h2, .contact-map h2, .contact-form h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: rgb(255, 123, 0);
+  font-weight: 600; 
+}
+
+.contact-info p, .contact-map p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #333; /* Darker text for better readability */
+}
+
+/* Form styles */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto; /* Center form */
+  padding: 20px;
+  background-color: #fff; /* White background for form */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: orange; /* Bootstrap primary color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.submit-button:hover {
+  background-color: rgb(255, 123, 0); /* Darker shade for hover effect */
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
   .contact-details {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 40px;
+    flex-direction: row; /* Horizontal layout on larger screens */
   }
-  
   .contact-info {
-    flex: 1;
-    margin-right: 20px;
-    padding: 20px;
-    background-color: #fff; /* White background for contact info */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-right: 20px; /* Space between contact info and map */
   }
-  
-  .contact-info h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #007bff; /* Bootstrap primary color */
+}
+
+@media (max-width: 576px) {
+  .contact-header h1 {
+    font-size: 2rem; /* Smaller header on mobile */
   }
-  
-  .contact-info p {
-    font-size: 1.1rem;
-    line-height: 1.5;
-    color: #333; /* Darker text for better readability */
+
+  .contact-header p {
+    font-size: 1rem; /* Smaller paragraph on mobile */
   }
-  
-  .contact-map {
-    flex: 2;
-    padding: 20px;
-    background-color: #fff; /* White background for map */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+
+  .contact-info h2, .contact-map h2, .contact-form h2 {
+    font-size: 1.5rem; /* Smaller section titles on mobile */
   }
-  
-  .contact-map h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #007bff; /* Bootstrap primary color */
-  }
-  
-  .contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px;
-    background-color: #fff; /* White background for form */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  }
-  
-  .contact-form h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #007bff; /* Bootstrap primary color */
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
+
   .submit-button {
-    padding: 10px 20px;
-    background-color: #007bff; /* Bootstrap primary color */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s; /* Smooth transition */
+    width: 100%; /* Full width button on mobile */
   }
-  
-  .submit-button:hover {
-    background-color: #0056b3; /* Darker shade for hover effect */
-  }
-  
-  /* Add animations */
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  .contact-page {
-    animation: fadeIn 0.5s ease-in;
-  }
-  
+}
+
+/* Add animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.contact-page {
+  animation: fadeIn 0.5s ease-in;
+}

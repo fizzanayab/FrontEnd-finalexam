@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
 
+.shopmain{
+  background-color: #ffefef;
+}
+
 .product-item {
   position: relative;
   overflow: hidden;
@@ -12,7 +16,7 @@
 
 .card-img-top {
   height: auto;
-  max-height: 300px; /* Adjust max height as needed */
+  max-height: 300px; 
   object-fit: cover;
 }
 
@@ -51,15 +55,15 @@
 .category-sidebar {
   margin-top: 30px;
   padding: 20px;
-  background-color: #f8f9fa; /* Light background */
-  border-radius: 5px; /* Rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  background-color: #f8f9fa; 
+  border-radius: 5px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .category-sidebar h5 {
   margin-bottom: 15px;
-  font-weight: bold; /* Make the heading bold */
-  font-size: 1.25rem; /* Slightly larger font */
+  font-weight: bold; 
+  font-size: 1.25rem; 
   color: #4F3230;
   font-family: Rozha One;
 
@@ -67,7 +71,7 @@
 
 .category-sidebar ul {
   padding-left: 0;
-  list-style-type: none; /* Remove default list styling */
+  list-style-type: none; 
 }
 
 .category-sidebar ul li {
@@ -75,34 +79,36 @@
 }
 
 .category-sidebar button {
-  width: 100%; /* Full width buttons */
-  text-align: left; /* Align text to the left */
-  padding: 10px; /* Increase padding for better touch targets */
-  border: none; /* Remove default button borders */
-  background-color: transparent; /* Transparent background */
-  transition: background-color 0.3s ease; /* Smooth background color transition */
+  width: 100%; 
+  text-align: left; 
+  padding: 10px; 
+  border: none; 
+  background-color: transparent; 
+  transition: background-color 0.3s ease; 
 }
 
 .category-sidebar button:hover {
-  background-color: #e2e6ea; /* Light grey on hover */
+  background-color: #e2e6ea; 
 }
 
 .category-sidebar button.active {
-  background-color: orange; /* Primary color for active button */
-  color: white; /* White text for better contrast */
-  font-weight: bold; /* Bold active button */
+  background-color: orange; 
+  color: white; 
+  font-weight: bold; 
 }
 
 /* Animation Classes */
 .product-card {
-  opacity: 0; /* Initially hidden */
-  transform: translateY(20px); /* Start from below */
-  transition: opacity 1s ease, transform 1s ease; /* Slow down the transition */
+
+  opacity: 0; 
+  transform: translateY(20px); 
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .product-card.show {
-  opacity: 1; /* Show the product */
-  transform: translateY(0); /* Move to its final position */
+  opacity: 1; 
+  transform: translateY(0); 
+  padding: 40px;
 }
 
 .shop-label {
@@ -154,4 +160,15 @@
 
 .shop-label  p a:hover::after {
   transform: scaleX(1); 
+}
+
+
+.product-cardmain{
+
+padding: 20px;
+}
+
+
+.product-card{
+  padding: 10px;
 }

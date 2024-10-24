@@ -36,23 +36,23 @@ const products = [
   { id: 2, name: 'Morning Breakfast', price: 60.00, img: img2, category: 'lunch/dinner' },
   { id: 3, name: 'Tuna Salad', price: 35.00, img: img3, category: 'salads' },
   { id: 4, name: 'Butter Coffee', price: 27.00, img: img4, category: 'drinks' },
-  { id: 5, name: 'Diet Food', price: 27.00, img: img5, category: 'salads' },
+  { id: 5, name: 'Diet Food', price: 26.00, img: img5, category: 'salads' },
   { id: 6, name: 'Special Cappuccino', price: 27.00, img: img6, category: 'drinks' },
   { id: 7, name: 'Multiple Drinks', price: 27.00, img: img7, category: 'drinks' },
-  { id: 8, name: 'Black Coffee', price: 27.00, img: img8, category: 'drinks' },
+  { id: 8, name: 'Black Coffee', price: 29.00, img: img8, category: 'drinks' },
   { id: 9, name: 'Gluten-Free Menu', price: 27.00, img: img9, category: 'lunch/dinner' },
-  { id: 10, name: 'Gluten-Free Menu', price: 27.00, img: img10, category: 'lunch/dinner' },
+  { id: 10, name: 'Gluten-Free Menu', price: 47.00, img: img10, category: 'lunch/dinner' },
   { id: 11, name: 'Pancakes', price: 27.00, img: img11, category: 'sweets' },
   { id: 12, name: 'Special Burger', price: 27.00, img: img12, category: 'fastfood' },
-  { id: 13, name: 'Indian Cuisine', price: 27.00, img: img13, category: 'lunch/dinner' },
+  { id: 13, name: 'Indian Cuisine', price: 67.00, img: img13, category: 'lunch/dinner' },
   { id: 14, name: 'Orange Pancake', price: 27.00, img: img14, category: 'sweets' },
-  { id: 15, name: 'Crispy Fries', price: 27.00, img: img15, category: 'fastfood' },
-  { id: 16, name: 'Dinner Menu', price: 27.00, img: img16, category: 'lunch/dinner' },
+  { id: 15, name: 'Crispy Fries', price: 77.00, img: img15, category: 'fastfood' },
+  { id: 16, name: 'Dinner Menu', price: 87.00, img: img16, category: 'lunch/dinner' },
   { id: 17, name: 'Beef Burger for 2', price: 27.00, img: img17, category: 'fastfood' },
-  { id: 18, name: 'Banana Pancakes', price: 27.00, img: img18, category: 'sweets' },
+  { id: 18, name: 'Banana Pancakes', price: 97.00, img: img18, category: 'sweets' },
   { id: 19, name: 'Macrons', price: 27.00, img: img19, category: 'sweets' },
-  { id: 20, name: 'Pizza', price: 27.00, img: img20, category: 'fastfood' },
-  { id: 21, name: 'Salad', price: 27.00, img: img21, category: 'salads' },
+  { id: 20, name: 'Pizza', price: 39.00, img: img20, category: 'fastfood' },
+  { id: 21, name: 'Salad', price: 56.00, img: img21, category: 'salads' },
 ];
 
 const Shop = () => {
@@ -104,7 +104,7 @@ const Shop = () => {
   return (
     <div>
       <Mainnav />
-      <div className="container-fluid mt-5">
+      <div className="container-fluid shopmain mt-5">
         <div className="row">
           {/* Category Filter Sidebar */}
           <div className="col-lg-3 col-md-4 mb-4">
@@ -136,7 +136,7 @@ const Shop = () => {
           </div>
 
           {/* Products Section */}
-          <div className="col-lg-12 col-md-12">
+          <div className="col-lg-12 col-md-12 product-cardmain ">
             <div className="row">
               {filteredProducts.map((product, index) => (
                 <div

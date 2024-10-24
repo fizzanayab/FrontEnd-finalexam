@@ -1,4 +1,4 @@
-/* Reset and basic styles */
+@import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -19,6 +19,9 @@ body {
   background-color: #f0f0f0;
   position: relative;
   overflow: hidden;
+  background-image: url('../../img/slider/sliderbg2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .form-container {
@@ -56,11 +59,11 @@ body {
 /* Form styles */
 form {
   background-color: white;
-  padding: 3rem;
+  padding: 4rem;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .input-field {
@@ -83,16 +86,24 @@ form {
   border-radius: 30px;
 }
 
-.btn {
-  background-color: #5995fd;
+.btnforum {
+  background-color: orange; 
   border: none;
-  color: white;
-  padding: 12px 40px;
-  margin-top: 10px;
+  color: #fff;
+  padding: 14px 48px; 
+  margin-top: 12px;
   border-radius: 30px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
+
+.btnforum:hover {
+  background-color: #e85b2a; 
+  transform: scale(1.05); 
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
+}
+
 
 .social-text {
   margin: 1.5rem 0;
@@ -114,7 +125,6 @@ form {
   left: 50%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(to right, #5995fd, #4d84e2);
   transition: all 0.6s ease-in-out;
   z-index: 100;
 }
@@ -136,13 +146,22 @@ form {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0 40px;
+  padding: 14px 30px;
+    margin: 0px 37px;
   width: 50%;
+}
+
+.overlay-panel h1 {
+  color: #4F3230;
+  font-family: 'Rozha One', serif;
+font-size: 60px;
 }
 
 .overlay-panel.overlay-left {
   transform: translateX(-20%);
 }
+
+
 
 .overlay-panel.overlay-right {
   transform: translateX(20%);
@@ -188,3 +207,28 @@ form {
 }
 
 
+
+.btnoverlay {
+  background-color: #ff8c00; 
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btnoverlay:hover {
+  background-color: #ff7b00; 
+  transform: translateY(-3px); 
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.btnoverlay:active {
+  background-color: #e67300;
+  transform: translateY(0); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}

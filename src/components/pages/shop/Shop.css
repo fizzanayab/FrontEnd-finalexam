@@ -55,6 +55,7 @@
 .category-sidebar {
   margin-top: 30px;
   padding: 20px;
+  margin-left: 20px;
   background-color: #f8f9fa; 
   border-radius: 5px; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
@@ -110,6 +111,9 @@
   transform: translateY(0); 
   padding: 40px;
 }
+.shoplable-main{
+  width: 72% !important;
+}
 
 .shop-label {
   margin-top: 30px;
@@ -133,16 +137,17 @@
 .shop-label h1 {
   font-weight: bold; 
   color: #ffffff; 
-  margin: 10%; 
-  font-family: Rozha One;
+  margin: 10% 10% 3% 10%;
+    font-family: Rozha One;
   font-size: 46px;
 
 }
 
 .shop-label  p a {
-  color: #ccc !important;
+  color: #ffffff !important;
   text-decoration: none;
   position: relative; 
+  font-weight: 500;
   font-size: 26px;
 }
 
@@ -171,4 +176,12 @@ padding: 20px;
 
 .product-card{
   padding: 10px;
+}
+
+
+@media (max-width: 768px) {
+  .shoplable-main{
+    width: 100% !important;
+  }
+  
 }

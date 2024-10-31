@@ -24,7 +24,9 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
       state.user = null;
 
-      
+      // Clear user data and logged-in status from localStorage
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('user');
     },
     restoreAuthState: (state) => {
       const savedUser = JSON.parse(localStorage.getItem('user'));
@@ -33,7 +35,7 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.user = savedUser;
       }
-    }
+    },
   },
 });
 

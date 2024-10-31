@@ -1,4 +1,3 @@
-/* Blog container and general styling */
 .blog-container-fluid {
   width: 100%;
   padding: 0;
@@ -9,9 +8,13 @@
 .blog-header {
   background-color: #007bff;
   color: white;
-  padding: 50px 0;
+  padding: 210px 0;
   text-align: center;
   background-image: url('../../img/blog/blogheader-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 70px;
+  margin-bottom: 90px;
 }
 
 .blog-header h1 {
@@ -29,38 +32,61 @@
   padding: 20px;
 }
 
-
+/* Blog Posts */
 .blog-posts {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns grid */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* Responsive columns */
   gap: 20px;
   width: 70%;
 }
 
 /* Individual blog post container */
 .blog-post {
+  height: 600px;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* Ensure there's space for text below the image */
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
 
-.blog-post:hover {
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px);
+.blog-post.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
+
+.blog-post::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background-color: orange;
+  transform: scaleX(1);
+  transition: transform 0.3s ease;
+}
+
+.blog-post:hover::after {
+  transform: scaleX(0);
+}
+
+
+
 
 /* Post image */
 .post-image {
+  height: 200px;
+  width: 100%;
   background-size: cover;
   background-position: center;
-  height: 200px; /* Adjust height as needed */
-  width: 100%;
 }
 
 /* Post details (title and content) */
@@ -78,27 +104,58 @@
   color: #666;
 }
 
-/* Learn More button */
-.learn-more-button {
-  display: block;
-  background-color: #007bff;
+/* Category Ribbon */
+.category-ribbon {
+  display: inline-block;
+  background-color: orange;
   color: white;
-  text-align: center;
-  padding: 10px;
-  margin: 10px 20px;
-  border-radius: 5px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 100px;
+}
+
+/* Post date */
+.post-date {
+  color: gray;
+  margin: 5px 0;
+}
+
+/* Read More button */
+.read-more-button {
+  display: inline-block;
   text-decoration: none;
+  color: rgb(39, 33, 21);
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-.learn-more-button:hover {
-  background-color: #0056b3;
+.read-more-button:hover {
+  color: darkorange;
 }
 
+.read-more-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 2px;
+  width: 100%;
+  background-color: orange;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.read-more-button:hover::after {
+  transform: scaleX(1);
+}
 
 /* Sidebar Styling */
 .blog-sidebar {
   width: 25%;
-  padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;
 }
@@ -116,193 +173,21 @@
 .categories ul {
   list-style: none;
   padding: 0;
+  margin-bottom: 50px;
 }
 
 .categories li {
   cursor: pointer;
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
+  padding: 10px 40px;
+  color: #666;
+  font-weight: 400;
 }
 
 .categories li:hover {
-  color: #007bff;
+  color: #f7a611;
 }
 
 /* Featured Posts */
-.featured-posts ul,
-.archives ul {
-  list-style: none;
-  padding: 0;
-}
-
-.featured-posts li,
-.archives li {
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.featured-posts li:hover,
-.archives li:hover {
-  color: #007bff;
-}
-
-.blog-post[data-id='1'] {
-  background-image: url('../../img/blog/totoutrial11-kitchen1.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-
-.blog-post[data-id='2'] {
-  background-image: url('../../img/blog/totoutrial8-kitchen2.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='3'] {
-  background-image: url('../../img/blog/kitchen3.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='4'] {
-  background-image: url('../../img/blog/kitchen4.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='5'] {
-  background-image: url('../../img/blog/kitchen5.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='6'] {
-  background-image: url('../../img/blog/kitchen6.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='7'] {
-  background-image: url('../../img/blog/kitchen7.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='8'] {
-  background-image: url('../../img/blog/kitchen8.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='9'] {
-  background-image: url('../../img/blog/kitchen9.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-
-
-.blog-post[data-id='10'] {
-  background-image: url('../../img/blog/toutrail-travel-1.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-
-.blog-post[data-id='11'] {
-  background-image: url('../../img/blog/toutrail-travel-1.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-
-.blog-post[data-id='12'] {
-  background-image: url('../../img/blog/totoutrial2.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='13'] {
-  background-image: url('../../img/blog/totoutrial3.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='14'] {
-  background-image: url('../../img/blog/totoutrial4.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='15'] {
-  background-image: url('../../img/blog/totoutrial5.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='16'] {
-  background-image: url('../../img/blog/totoutrial5.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='17'] {
-  background-image: url('../../img/blog/totoutrial6.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='18'] {
-  background-image: url('../../img/blog/totoutrial7.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='19'] {
-  background-image: url('../../img/blog/totoutrial8-kitchen2.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='20'] {
-  background-image: url('../../img/blog/totoutrial9.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='21'] {
-  background-image: url('../../img/blog/totoutrial10.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='22'] {
-  background-image: url('../../img/blog/totoutrial11-kitchen1.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='23'] {
-  background-image: url('../../img/blog/totoutrial11-kitchen1.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='24'] {
-  background-image: url('../../img/blog/totoutrial12.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-.blog-post[data-id='25'] {
-  background-image: url('../../img/blog/totoutrial13.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-
-/* Featured posts section */
 .featured-posts {
   margin-top: 20px;
 }
@@ -312,26 +197,19 @@
   list-style: none;
 }
 
-.featured-posts li {
-  margin-bottom: 20px;
-}
-
-/* Featured post layout */
 .featured-post {
   display: flex;
   flex-direction: column;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
-  overflow: hidden;
 }
 
 /* Image styling for featured post */
 .featured-post .post-image {
   background-size: cover;
   background-position: center;
-  height: 150px; /* Adjust as needed for featured post image */
-  width: 100%;
+  height: 150px;
 }
 
 /* Post title below the image */
@@ -340,4 +218,46 @@
   text-align: center;
   font-weight: bold;
   font-size: 1rem;
+}
+
+.home-link {
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+
+.home-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 100%;
+  background-color: orange;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.home-link:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .blog-content {
+    flex-direction: column;
+  }
+
+  .blog-sidebar {
+    width: 100%;
+  }
+
+  .blog-posts {
+    width: 100%;
+  }
+
+  .blog-post {
+    margin-bottom: 20px;
+  }
 }

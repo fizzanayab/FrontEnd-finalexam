@@ -1,12 +1,12 @@
 import React from 'react';
-import AppNavbar from '../../header/homenav/HomeNav';
 import Footer from '../../footer/pagesfooter/Footer';
 import './Contact.css'; 
+import Mainnav from '../../header/pagesnav/Mainnav';
 
 const Contact = () => {
   return (
     <div>
-     <AppNavbar /> 
+     <Mainnav/>
     <div className="contact-page">
       
       <div className="contact-header">
@@ -30,7 +30,7 @@ const Contact = () => {
             <label htmlFor="message">Message:</label>
             <textarea id="message" name="message" required></textarea>
           </div>
-          <button type="submit" className="submit-button">Send Message</button>
+          <button type="submit" className="submit-button1">Send Message</button>
         </form>
       
         </div>
@@ -38,7 +38,7 @@ const Contact = () => {
         <div className="contact-map">
           <h2>Our Location</h2>
           <iframe 
-            title="Google Map showing our location"  // Add title attribute for accessibility
+            title="Google Map showing our location"  
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0747902202336!2d-122.42109208468812!3d37.77492977975914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808a44cf3c09%3A0x7c4233ff3f35a19b!2sYour%20Business%20Name!5e0!3m2!1sen!2sus!4v1639782577514!5m2!1sen!2sus" 
             width="100%" 
             height="450" 

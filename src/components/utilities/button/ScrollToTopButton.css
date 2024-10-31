@@ -1,0 +1,40 @@
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px; 
+    right: 30px; 
+    background-color: orange;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000; 
+    transition: opacity 0.5s ease; 
+  }
+  
+  .scroll-to-top.fade-in {
+    opacity: 1;
+  }
+  
+  .scroll-to-top.fade-out {
+    opacity: 0;
+  }
+  
+  .arrow-icon {
+    color: white; 
+    font-size: 20px; 
+  }
+  
+  .scroll-to-top:hover {
+    background-color: darkorange; 
+    transform: scale(1.1); 
+  }
+  
+  .arrow-icon {
+    color: white; 
+    font-size: 20px; 
+    transition: transform 0.3s ease; 
+  }
+  
+  .scroll-to-top:hover .arrow-icon {
+    transform: scale(1.2); 
+  }

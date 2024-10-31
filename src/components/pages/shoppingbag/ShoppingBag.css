@@ -2,7 +2,7 @@
 
 .mainshoopingbag{
     background-color: #ebc9a9;
-    background-image: url('../../img/shop/wood.jpg');
+    background-image: url('https://png.pngtree.com/background/20230412/original/pngtree-coffee-background-picture-image_2393936.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -20,7 +20,7 @@
     font-weight: 800;
     color: #4F3230;
   font-family: 'Rozha One', serif;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.788); /* Adds a subtle shadow effect */
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.788); 
 
   }
   

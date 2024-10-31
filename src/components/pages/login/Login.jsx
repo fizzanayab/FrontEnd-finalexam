@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { signUpSchema, signInSchema } from "./validationSchema"; 
 import SocialMedia from "./../../utilities/icons/SocialMedia";
 import { useDispatch } from 'react-redux';
-import { login } from '../../features/authSlice'; 
+import { login, logout } from '../../features/authSlice';
 import "./Login.css";
 
 const Login = () => {
@@ -21,7 +21,8 @@ const Login = () => {
     },
     validationSchema: signUpSchema,
     onSubmit: (values) => {
-      localStorage.setItem("user", JSON.stringify(values));
+      // Save registered user separately
+      localStorage.setItem("registeredUser", JSON.stringify(values));
       setSignUpMode(false);
       alert("Registration successful! Please sign in.");
     },
@@ -35,17 +36,31 @@ const Login = () => {
     },
     validationSchema: signInSchema,
     onSubmit: (values) => {
-      const storedUser = JSON.parse(localStorage.getItem("user"));
+      const registeredUser = JSON.parse(localStorage.getItem("registeredUser"));
 
-      if (storedUser && storedUser.username === values.username && storedUser.password === values.password) {
+      if (registeredUser && registeredUser.username === values.username && registeredUser.password === values.password) {
         alert("Login successful!");
-        dispatch(login(storedUser)); 
+        dispatch(login(registeredUser)); 
+
+        // Save session data in localStorage
+        localStorage.setItem("user", JSON.stringify(registeredUser));
+        localStorage.setItem("isLoggedIn", "true");
+        
         navigate("/"); 
       } else {
         alert("Invalid credentials. Please try again.");
       }
     },
   });
+
+  // Logout functionality
+  const handleLogout = () => {
+    dispatch(logout());
+    localStorage.removeItem("user");
+    localStorage.setItem("isLoggedIn", "false");
+    navigate("/login");
+  };
+
 
   return (
     <div className={`login-container ${signUpMode ? "sign-up-mode" : ""}`}>

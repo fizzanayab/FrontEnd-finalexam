@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate  } from 'react-router-dom';
+
 import AppNavbar from '../../header/homenav/HomeNav';
 import Slider from '../../utilities/slider/Slider';
+import ScrollToTopButton from '../../utilities/button/ScrollToTopButton';
 import './Home.css';
 
 const Home = () => {
   const [opacity, setOpacity] = useState(1);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -252,7 +255,7 @@ const Home = () => {
                 <h3 className="menu-title">Proof Bread When It’s Cold Outside</h3>
                 <hr className="menu-divider1" />
                 <p>When the temps drop, I start craving all my favorite comfort foods...</p>
-                <Link to="/blog" className="button">Learn More</Link> {/* Updated button */}
+                <Link to="/blog" className="button">Learn More</Link> 
               </div>
             </div>
           </div>
@@ -260,9 +263,8 @@ const Home = () => {
 
         {/* For Tablet View */}
         <div className="d-none d-md-block d-lg-none">
-          {/* Tablet view: Two cards in a row */}
           <div className="row justify-content-center">
-            <div className="col-5 mx-1">  {/* Adjusted to col-5 for tablet view */}
+            <div className="col-5 mx-1">  
               <div className="new-menu-item">
                 <div className="image-wrapper">
                   <img
@@ -278,7 +280,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="col-5 mx-1">  {/* Adjusted to col-5 for tablet view */}
+            <div className="col-5 mx-1">  
               <div className="new-menu-item">
                 <div className="image-wrapper">
                   <img
@@ -290,7 +292,7 @@ const Home = () => {
                 <h3 className="menu-title">Is Your Bread Kneaded Enough?</h3>
                 <hr className="menu-divider1" />
                 <p>Making your own bread can be one of the most satisfying achievements...</p>
-                <Link to="/blog" className="button">Learn More</Link> {/* Updated button */}
+                <Link to="/blog" className="button">Learn More</Link> 
               </div>
             </div>
           </div>
@@ -443,8 +445,9 @@ const Home = () => {
               alt="Coffee Shop Logo"
               className="logo-img"
             />
-            <button className="contact-button">Contact Us</button>
-          </div>
+ <button className="contact-button" onClick={() => navigate('/contact')}>
+        Contact Us
+      </button>          </div>
           <div className="footer-address">
             <h4 className="address-title">Address</h4>
             <address>
@@ -454,7 +457,7 @@ const Home = () => {
             </address>
           </div>
         </div>
-
+<ScrollToTopButton/>
 
       </footer>
       <div className="footerend">

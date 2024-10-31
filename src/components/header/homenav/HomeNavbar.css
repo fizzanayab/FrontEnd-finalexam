@@ -2,15 +2,15 @@
   position: fixed !important;
   top: 0;
   width: 100%;
-  z-index: 10; 
-  background-color: transparent; 
+  z-index: 10;
+  background-color: transparent;
   transition: background-color 0.5s ease;
   padding: 20px;
-  color: aliceblue ;
+  color: aliceblue;
 }
 
 .navbar.scrolled {
-  background-color: rgba(0, 0, 0, 0.85); 
+  background-color: rgba(0, 0, 0, 0.85);
 }
 
 
@@ -30,32 +30,32 @@
   color: #fff !important;
   font-weight: 600 !important;
   margin-left: 35px !important;
-  position: relative; /* Necessary for positioning the pseudo-element */
-  text-decoration: none; /* Remove default underline */
+  position: relative;
+  text-decoration: none;
 }
 
 /* Change text color on hover */
 .menunav:hover {
-  color: orange !important; /* Change text color on hover */
+  color: orange !important;
 }
 
 /* Create an underline effect */
 .menunav::after {
   content: '';
   position: absolute;
-  left: 0; /* Start from the left */
-  bottom: -2px; /* Position just below the text */
-  width: 100%; /* Full width */
-  height: 2px; /* Thickness of the underline */
-  background-color: orange; /* Underline color */
-  transform: scaleX(0); /* Start with no visible underline */
-  transform-origin: left; /* Ensure the scaling starts from the left */
-  transition: transform 0.3s ease; /* Smooth transition for scaling */
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: orange;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
 /* Scale to full width on hover */
 .menunav:hover::after {
-  transform: scaleX(1); /* Expand to full width on hover */
+  transform: scaleX(1);
 }
 
 
@@ -84,29 +84,32 @@
 
 
 
-.phone-number {
+.phone-number1 {
   padding: 0;
   margin: 0 15px;
-  border: 2px solid #fff;
-  border-color: rgba(255, 255, 255, 0.3);
+  border: 2px solid #ffffff;
+  border-color: #fffefd;
   display: inline-block;
 }
 
 .phone {
   padding-left: 15px;
+
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
 .phone1 {
-  width: 18px;
-  margin-left: 15px;
-  margin-right: 15px;
+  width: 28px;
   height: 51px;
+  margin-left: 10px;
+  padding-right: 10px;
   line-height: 51px;
-  border-right: 2px solid #fff;
-  border-color: rgba(255, 255, 255, 0.3);
+  border-right: 2px solid #ffffff;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
 }
 
 
@@ -119,7 +122,7 @@
   width: 250px;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
-  z-index: 9999; 
+  z-index: 9999;
 }
 
 /* Hidden icons dropdown */
@@ -128,16 +131,18 @@
   top: 70px;
   right: 15px;
   background-color: rgba(0, 0, 0, 0.9);
-  z-index: 9999; 
+  z-index: 9999;
 }
 
 
 .dropdown-menu {
   position: absolute;
-  z-index: 9999; 
+  z-index: 9999;
 }
+
 /* Mobile-specific styles */
 @media (max-width: 1198px) {
+
   .navbar .right-section .phone-number,
   .navbar .right-section .icons {
     display: none;
@@ -145,26 +150,27 @@
 
   .dropdown-menu-icons {
     display: flex;
-  flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.9);
-  padding: 10px;
-  position: absolute;
-  top: 70px;
-  right: 15px;
-  z-index: 3; 
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 10px;
+    position: absolute;
+    top: 70px;
+    right: 15px;
+    z-index: 3;
   }
 }
 
-.portfolio-dropdown{
+.portfolio-dropdown {
   position: absolute;
-  z-index: 9999; 
+  z-index: 9999;
 }
 
 @media (max-width: 768px) {
+
   .navbar .left-section,
   .navbar .right-section {
     display: none;
-   
+
   }
 
   .navbar .center-logo {
@@ -179,5 +185,51 @@
 }
 
 #account-dropdown {
-  margin-left: 40px; /* Adjust this value for larger or smaller margins */
+  margin-left: 40px;
+}
+
+.cart-icon {
+  font-size: 20px;
+}
+
+
+.offcanvas {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+}
+
+.offcanvas .menunav {
+  color: #53391a !important;
+}
+
+.offcanvas .menunav:hover {
+  color: orange !important;
+}
+
+
+.navbar .right-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navbar .navbar-toggler {
+  margin-left: auto;
+}
+
+.phone-number1 {
+  margin-right: 15px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+
+  .navbar .right-section .phone-number,
+  .navbar .right-section .icons {
+    display: none;
+  }
+
+  .navbar .navbar-toggler {
+    display: block;
+  }
 }

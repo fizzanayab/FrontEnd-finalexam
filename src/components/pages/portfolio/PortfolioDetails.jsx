@@ -1,7 +1,8 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams , useNavigate } from 'react-router-dom';
 import './PortfolioDetails.css';
 import AppNavbar from '../../header/homenav/HomeNav';
+import ScrollToTopButton from '../../utilities/button/ScrollToTopButton';
 import Footer from '../../footer/pagesfooter/Footer';
 
 // Import images
@@ -29,6 +30,8 @@ const allProjects = [
 
 const PortfolioDetails = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
+
     const project = allProjects.find((project) => project.id === parseInt(id));
 
     if (!project) {
@@ -40,6 +43,9 @@ const PortfolioDetails = () => {
             <AppNavbar />
             <div className="portfolio-detail-header" style={{ backgroundImage: `url(${project.image})` }}>
                 <h1>{project.title}</h1>
+                <h1 onClick={() => navigate(-1)} style={{ cursor: 'pointer', color: 'orange' }}>Back</h1>
+
+
             </div>
 
             <div className="container mt-5">
@@ -81,6 +87,8 @@ const PortfolioDetails = () => {
                     </div>
                 </div>
             </div>
+            <ScrollToTopButton/>
+
             <Footer />
         </div>
     );

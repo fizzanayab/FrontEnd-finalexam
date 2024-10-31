@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-
+import ScrollToTopButton from '../../utilities/button/ScrollToTopButton';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addItem } from '../../features/cartSlice';
@@ -62,12 +62,10 @@ const Shop = () => {
   const dispatch = useDispatch();
   const productRefs = useRef([]);
 
-  // Filter products based on the selected category
   const filteredProducts = selectedCategory === 'all'
     ? products
     : products.filter(product => product.category === selectedCategory);
 
-  // Intersection Observer for animation
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -77,7 +75,7 @@ const Shop = () => {
         }
       });
     }, {
-      threshold: 0.1 // Trigger when 10% of the element is visible
+      threshold: 0.1 
     });
 
     // Observe the current product references
@@ -90,7 +88,7 @@ const Shop = () => {
     return () => {
       observer.disconnect();
     };
-  }, [filteredProducts]); // Only run this when filteredProducts change
+  }, [filteredProducts]); 
 
   const handleAddToCart = (product) => {
     if (isLoggedIn) {
@@ -126,7 +124,7 @@ const Shop = () => {
           </div>
 
           {/* Shop Label Div */}
-          <div className="col-lg-8 col-md-7 mb-12">
+          <div className="shoplable-main">
             <div className="shop-label p-3 bg-light border rounded text-center">
               <h1 className="h3">Shop</h1>
               <p>
@@ -165,6 +163,8 @@ const Shop = () => {
           </div>
         </div>
       </div>
+      <ScrollToTopButton/>
+
       <Footer />
     </div>
   );

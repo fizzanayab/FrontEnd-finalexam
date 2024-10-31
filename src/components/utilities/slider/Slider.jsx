@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './Slider.css';
-import coffeeLogo from '../../img/slider/sliderlogo.png'; 
-import circlerotate from '../../img/slider/slideranimation.png'; 
-import orangeArrow from '../../img/slider/srroworange.png'; 
-import smalltext from '../../img/slider/smalltext1.png'; 
-import maintext from '../../img/slider/maintext.png';    
+import coffeeLogo from '../../img/slider/sliderlogo.png';
+import circlerotate from '../../img/slider/slideranimation.png';
+import orangeArrow from '../../img/slider/srroworange.png';
+import smalltext from '../../img/slider/smalltext1.png';
+import maintext from '../../img/slider/maintext.png';
 
 const slides = [
   {
@@ -17,10 +17,22 @@ const slides = [
 
 const Slider = () => {
   const [active, setActive] = useState(0);
-  const [autoplay, setAutoplay] = useState(true);
+  const [autoplay] = useState(true);
   const [animating, setAnimating] = useState(false);
-  const [logoAnimating, setLogoAnimating] = useState(false); // Add state for logo animation
+  const [logoAnimating, setLogoAnimating] = useState(false);
   const max = slides.length;
+
+  const triggerSlideChange = useCallback(() => {
+    setLogoAnimating(true);
+    setTimeout(() => {
+      setAnimating(true);
+      setTimeout(() => {
+        setActive((prevActive) => (prevActive === max - 1 ? 0 : prevActive + 1));
+        setAnimating(false);
+        setLogoAnimating(false);
+      }, 1000);
+    }, 500);
+  }, [max]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,19 +41,7 @@ const Slider = () => {
       }
     }, 5000);
     return () => clearInterval(interval);
-  }, [active, autoplay]);
-
-  const triggerSlideChange = () => {
-    setLogoAnimating(true); // Trigger logo to move up before slide change
-    setTimeout(() => {
-      setAnimating(true);
-      setTimeout(() => {
-        setActive(active === max - 1 ? 0 : active + 1);
-        setAnimating(false);
-        setLogoAnimating(false); // Reset logo animation to move down after slide change
-      }, 1000);
-    }, 500); // Delay for logo movement
-  };
+  }, [triggerSlideChange, autoplay]);
 
   const nextOne = () => triggerSlideChange();
   const prevOne = () => setActive(active === 0 ? max - 1 : active - 1);
@@ -62,10 +62,10 @@ const Slider = () => {
       </div>
       <div className={`slider-content ${animating ? 'animating' : ''}`}>
         <div className="logo-container">
-          <img 
-            src={coffeeLogo} 
-            alt="Coffee Logo" 
-            className={`coffee-logo ${logoAnimating ? 'animate-logo-up' : 'animate-logo-down'}`} 
+          <img
+            src={coffeeLogo}
+            alt="Coffee Logo"
+            className={`coffee-logo ${logoAnimating ? 'animate-logo-up' : 'animate-logo-down'}`}
           />
         </div>
         <img src={maintext} alt="Main Text" className={`main-text ${animating ? 'animate-main' : 'zoom-in'}`} />
